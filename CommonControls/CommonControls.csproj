@@ -1,0 +1,153 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3CD022DE-F349-4548-9AD6-08B50F6148C7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Petronode.CommonControls</RootNamespace>
+    <AssemblyName>Petronode.CommonControls</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ColorConverter.cs" />
+    <Compile Include="ColorSelectorControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ColorSelectorControl.Designer.cs">
+      <DependentUpon>ColorSelectorControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ComposerHelpForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ComposerHelpForm.Designer.cs">
+      <DependentUpon>ComposerHelpForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomColorControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomColorControl.Designer.cs">
+      <DependentUpon>CustomColorControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DefaultColorControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DefaultColorControl.Designer.cs">
+      <DependentUpon>DefaultColorControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FileLoadControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FileLoadControl.Designer.cs">
+      <DependentUpon>FileLoadControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FontHelpForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FontHelpForm.Designer.cs">
+      <DependentUpon>FontHelpForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImageLoadControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ImageLoadControl.Designer.cs">
+      <DependentUpon>ImageLoadControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PictureDigitizerControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PictureDigitizerControl.Designer.cs">
+      <DependentUpon>PictureDigitizerControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ToolLauncher.cs" />
+    <Compile Include="ToolLauncherControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ToolLauncherControl.Designer.cs">
+      <DependentUpon>ToolLauncherControl.cs</DependentUpon>
+    </Compile>
+    <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ColorSelectorControl.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ColorSelectorControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ComposerHelpForm.resx">
+      <DependentUpon>ComposerHelpForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomColorControl.resx">
+      <DependentUpon>CustomColorControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DefaultColorControl.resx">
+      <DependentUpon>DefaultColorControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FileLoadControl.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FileLoadControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FontHelpForm.resx">
+      <DependentUpon>FontHelpForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImageLoadControl.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ImageLoadControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PictureDigitizerControl.resx">
+      <DependentUpon>PictureDigitizerControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ToolLauncherControl.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ToolLauncherControl.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
