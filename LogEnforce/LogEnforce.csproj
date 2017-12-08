@@ -1,0 +1,114 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{46F41D22-7437-4BC2-B06E-16A966DD1F3F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Petronode.LogEnforce</RootNamespace>
+    <AssemblyName>Petronode.LogEnforce</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ChannelAverageWithinRule.cs" />
+    <Compile Include="ChannelCoverageRule.cs" />
+    <Compile Include="ChannelPresentRule.cs" />
+    <Compile Include="ChannelUnitOneOfRule.cs" />
+    <Compile Include="ChannelUnitRule.cs" />
+    <Compile Include="ChannelWithinRule.cs" />
+    <Compile Include="ConstantContainsOneOfRule.cs" />
+    <Compile Include="ConstantEqualsRule.cs" />
+    <Compile Include="ConstantLatitudeWithinRule.cs" />
+    <Compile Include="ConstantLongitudeWithinRule.cs" />
+    <Compile Include="ConstantNumericWithinRule.cs" />
+    <Compile Include="ConstantOneOfRule.cs" />
+    <Compile Include="ConstantSetRule.cs" />
+    <Compile Include="ConstantStartsWithOneOfRule.cs" />
+    <Compile Include="ConstantUnitRule.cs" />
+    <Compile Include="ConstantCompareRule.cs" />
+    <Compile Include="ChannelWithinConstantRule.cs" />
+    <Compile Include="ParameterCompareRule.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NamingConventionRule.cs" />
+    <Compile Include="ParameterContainsOneOfRule.cs" />
+    <Compile Include="ParameterEqualsRule.cs" />
+    <Compile Include="ParameterNumericWithinRule.cs" />
+    <Compile Include="ParameterOneOfRule.cs" />
+    <Compile Include="ParameterSetRule.cs" />
+    <Compile Include="ParameterStartsWithOneOfRule.cs" />
+    <Compile Include="ParameterUnitRule.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Rule.cs" />
+    <Compile Include="RuleList.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OilfieldFileAccess\OilfieldFileAccess.csproj">
+      <Project>{988A3AF9-A73F-4604-B3FF-621984956BD8}</Project>
+      <Name>OilfieldFileAccess</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

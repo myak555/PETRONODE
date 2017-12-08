@@ -1,0 +1,1798 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RulesFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Version>2.01.0216.01</Version>
+  <Rules>
+    <Rule>
+      <Name>File Naming Convention Check</Name>
+      <Type>NamingConvention</Type>
+      <Values>
+		<Value>COMP</Value>
+		<Value>_</Value>
+		<Value>WELL</Value>
+		<Value>_</Value>
+	  </Values>
+	  <Capitals>YES</Capitals>
+    </Rule>
+    <Rule>
+      <Name>Log Start Check</Name>
+      <Type>ConstantNumericWithin</Type>
+      <Constant>STRT</Constant>
+      <Values>
+        <MinValueWarning>-10.0</MinValueWarning>
+        <MaxValueWarning>3000.0</MaxValueWarning>
+      </Values>
+    </Rule>
+    <Rule>
+      <Name>Log Start Unit Check</Name>
+      <Type>ConstantUnit</Type>
+      <Constant>STRT</Constant>
+      <Value>M</Value>
+    </Rule>
+    <Rule>
+      <Name>Log End Check</Name>
+      <Type>ConstantNumericWithin</Type>
+      <Constant>STOP</Constant>
+      <Values>
+        <MinValueWarning>-10.0</MinValueWarning>
+        <MaxValueWarning>3000.0</MaxValueWarning>
+      </Values>
+    </Rule>
+    <Rule>
+      <Name>Log End Unit Check</Name>
+      <Type>ConstantUnit</Type>
+      <Constant>STOP</Constant>
+      <Value>M</Value>
+    </Rule>
+    <Rule>
+      <Name>Logging Increment Check</Name>
+      <Type>ConstantNumericWithin</Type>
+      <Constant>STEP</Constant>
+      <Values>
+        <MinValueWarning>-0.5</MinValueWarning>
+        <MaxValueWarning>0.5</MaxValueWarning>
+      </Values>
+    </Rule>
+    <Rule>
+      <Name>Log Increment Unit Check</Name>
+      <Type>ConstantUnit</Type>
+      <Constant>STEP</Constant>
+      <Value>M</Value>
+    </Rule>
+    <Rule>
+      <Name>Null Value Check</Name>
+      <Type>ConstantEquals</Type>
+      <Constant>NULL</Constant>
+      <Value>-999.250</Value>
+    </Rule>
+    <Rule>
+      <Name>Company Check</Name>
+      <Type>ConstantOneOf</Type>
+      <Constant>COMP</Constant>
+      <Values>
+        <Value>QGC</Value>
+        <Value>SANTOS LTD</Value>
+        <Value>ARROW ENERGY</Value>
+        <Value>APLNG</Value>
+        <Value>ORIGIN ENERGY RESOURCES LIMITED</Value>
+        <Value>AGL ENERGY LIMITED</Value>
+        <Value>BLUE ENERGY LIMITED</Value>
+        <Value>EXOMA ENERGY</Value>
+        <Value>BASS STRAIT OIL COMPANY LTD.</Value>
+        <Value>SENEX ENERGY LTD</Value>
+        <Value>WESTSIDE</Value>
+        <Value>SANTOS LTD.</Value>
+      </Values>
+    </Rule>
+    <Rule>
+      <Name>Well Name Check</Name>
+      <Type>ConstantSet</Type>
+      <Constant>WELL</Constant>
+    </Rule>
+    <Rule>
+      <Name>Field Name Check</Name>
+      <Type>ConstantSet</Type>
+      <Constant>FLD</Constant>
+    </Rule>
+    <Rule>
+      <Name>State Check</Name>
+      <Type>ConstantOneOf</Type>
+      <Constant>PROV</Constant>
+      <Values>
+        <Value>QUEENSLAND</Value>
+        <Value>NEW SOUTH WALES</Value>
+        <Value>SOUTH AUSTRALIA</Value>
+        <Value>NORTHERN TERRITORY</Value>
+        <Value>WESTERN AUSTRALIA</Value>
+        <Value>VICTORIA</Value>
+        <Value>TASMANIA</Value>
+      </Values>
+    </Rule>
+    <Rule>
+      <Name>Country Check</Name>
+      <Type>ConstantEquals</Type>
+      <Constant>CTRY</Constant>
+      <Value>AUSTRALIA</Value>
+    </Rule>
+    <Rule>
+      <Name>Location Check</Name>
+      <Type>ConstantSet</Type>
+      <Constant>LOC</Constant>
+    </Rule>
+    <Rule>
+      <Name>UWI Check</Name>
+      <Type>ConstantSet</Type>
+      <Severity>Warning</Severity>
+      <Constant>UWI</Constant>
+    </Rule>
+    <Rule>
+      <Name>Latitude Check</Name>
+      <Type>ConstantLatitudeWithin</Type>
+      <Constant>LATI</Constant>
+      <Values>
+        <MinValueError>-38.0</MinValueError>
+        <MinValueWarning>-30.0</MinValueWarning>
+        <MaxValueWarning>-20.0</MaxValueWarning>
+        <MaxValueError>-12.0</MaxValueError>
+      </Values>
+    </Rule>
+    <Rule>
+      <Name>Longitude Check</Name>
+      <Type>ConstantLongitudeWithin</Type>
+      <Constant>LONG</Constant>
+      <Values>
+        <MinValueError>110.0</MinValueError>
+        <MinValueWarning>134.0</MinValueWarning>
+        <MaxValueWarning>151.5</MaxValueWarning>
+        <MaxValueError>155.0</MaxValueError>
+      </Values>
+    </Rule>
+    <Rule>
+      <Name>Date Check</Name>
+      <Type>ConstantSet</Type>
+      <Constant>DATE</Constant>
+    </Rule>  
+    <Rule>
+      <Name>Run ID Check</Name>
+      <Type>ParameterContainsOneOf</Type>
+      <Constant>RNID</Constant>
+      <Values>
+        <Value>MAIN</Value>
+        <Value>HIGH</Value>
+        <Value>REPEAT</Value>
+        <Value>DOWN</Value>
+      </Values>
+    </Rule>
+    <Rule>
+      <Name>Elevation of Depth Reference Check</Name>
+      <Type>ParameterNumericWithin</Type>
+      <Severity>Warning</Severity>
+      <Constant>EREF</Constant>
+      <Values>
+        <MinValueError>-100.0</MinValueError>
+        <MinValueWarning>0.0</MinValueWarning>
+        <MaxValueWarning>500.0</MaxValueWarning>
+        <MaxValueError>1500.0</MaxValueError>
+      </Values>
+    </Rule>
+    <Rule>
+      <Name>Elevation of Depth Reference Unit Check</Name>
+      <Type>ParameterUnit</Type>
+      <Constant>EREF</Constant>
+      <Value>M</Value>
+    </Rule>
+    <Rule>
+      <Name>Depth Reference Check</Name>
+      <Type>ParameterStartsWithOneOf</Type>
+      <Constant>DREF</Constant>
+      <Values>
+        <Value>KB</Value>
+        <Value>DF</Value>
+        <Value>GL</Value>
+        <Value>K.B.</Value>
+        <Value>D.F.</Value>
+        <Value>G.L.</Value>
+      </Values>
+    </Rule>
+ 	<Rule>
+      <Name>Ground Elevation Check</Name>
+      <Type>ParameterNumericWithin</Type>
+      <Constant>GL</Constant>
+      <Values>
+        <MinValueError>-100.0</MinValueError>
+        <MinValueWarning>0.0</MinValueWarning>
+        <MaxValueWarning>500.0</MaxValueWarning>
+        <MaxValueError>1500.0</MaxValueError>
+      </Values>
+    </Rule>
+    <Rule>
+      <Name>Ground Elevation Unit Check</Name>
+      <Type>ParameterUnit</Type>
+      <Constant>GL</Constant>
+      <Value>M</Value>
+    </Rule>
+    <Rule>
+      <Name>Run Number Check</Name>
+      <Type>ParameterSet</Type>
+      <Constant>RUN</Constant>
+    </Rule>
+    <Rule>
+      <Name>Drillers TD Check</Name>
+      <Type>ParameterSet</Type>
+      <Constant>TDD</Constant>
+    </Rule>
+    <Rule>
+      <Name>Loggers TD Check</Name>
+      <Type>ParameterSet</Type>
+      <Constant>TDL</Constant>
+    </Rule>
+    <Rule>
+      <Name>Drillers Casing Botom Check</Name>
+      <Type>ParameterSet</Type>
+      <Constant>CSGD</Constant>
+    </Rule>
+    <Rule>
+      <Name>Loggers Casing Bottom Check</Name>
+      <Type>ParameterSet</Type>
+      <Constant>CSGL</Constant>
+    </Rule>
+    <Rule>
+      <Name>Bit Size Check</Name>
+      <Type>ParameterSet</Type>
+      <Constant>BS</Constant>
+    </Rule>
+    <Rule>
+      <Name>Mud Type Check</Name>
+      <Type>ParameterOneOf</Type>
+      <Constant>MUD</Constant>
+      <Values>
+        <Value>FRESH</Value>
+        <Value>KCL</Value>
+        <Value>WATER BASED</Value>
+        <Value>POLYMER</Value>
+        <Value>OIL BASED</Value>
+      </Values>
+    </Rule>  
+    <Rule>
+        <Name>Mud Density Check</Name>
+        <Type>ParameterSet</Type>
+        <Constant>MUDD</Constant>
+    </Rule>
+    <Rule>
+      <Name>Mud Viscosity Check</Name>
+      <Type>ParameterSet</Type>
+      <Constant>MUDV</Constant>
+    </Rule>
+    <Rule>
+      <Name>Mud Sample Source Check</Name>
+      <Type>ParameterOneOf</Type>
+      <Constant>MUDS</Constant>
+      <Values>
+		<Value>FLOWLINE</Value>
+		<Value>FLOW LINE</Value>
+        <Value>MUD PIT</Value>
+      </Values>
+    </Rule>  
+    <Rule>
+      <Name>Mud Resistivity Check</Name>
+      <Type>ParameterSet</Type>
+      <Constant>RM</Constant>
+    </Rule>
+    <Rule>
+      <Name>Mud Sample Temperature Check</Name>
+      <Type>ParameterEquals</Type>
+      <Constant>RMT</Constant>
+      <Value>25.0</Value>
+    </Rule>  
+    <Rule>
+      <Name>Mud Filtrate Resistivity Check</Name>
+      <Type>ParameterSet</Type>
+      <Constant>RMF</Constant>
+    </Rule>
+    <Rule>
+      <Name>Mud Filtrate Sample Temperature Check</Name>
+      <Type>ParameterEquals</Type>
+      <Constant>RMFT</Constant>
+      <Value>25.0</Value>
+    </Rule>  
+    <Rule>
+      <Name>Mud Cake Resistivity Check</Name>
+      <Type>ParameterSet</Type>
+      <Constant>RMC</Constant>
+    </Rule>
+    <Rule>
+      <Name>Mud Cake Sample Temperature Check</Name>
+      <Type>ParameterEquals</Type>
+      <Constant>RMCT</Constant>
+      <Value>25.0</Value>
+    </Rule>
+    <Rule>
+      <Name>Maximum recorded Temperature Check</Name>
+      <Type>ParameterSet</Type>
+      <Constant>TMAX</Constant>
+    </Rule>
+    <Rule>
+      <Name>Time Circulation Stopped Check</Name>
+      <Type>ParameterSet</Type>
+      <Constant>TIMC</Constant>
+    </Rule>
+    <Rule>
+      <Name>Time Tools on Bottom Check</Name>
+      <Type>ParameterSet</Type>
+      <Constant>TIML</Constant>
+    </Rule>
+    <Rule>
+      <Name>Loggin Unit ID Check</Name>
+      <Type>ParameterOneOf</Type>
+      <Constant>UNIT</Constant>
+      <Values>
+        <Value>11553</Value>
+        <Value>11563</Value>
+        <Value>11564</Value>
+        <Value>13065</Value>
+        <Value>13066</Value>
+        <Value>13245</Value>
+        <Value>13353</Value>
+        <Value>13354</Value>
+        <Value>14294</Value>
+        <Value>15551</Value>
+        <Value>16099</Value>
+        <Value>16100</Value>
+      </Values>
+    </Rule>
+    <Rule>
+      <Name>Base Location Check</Name>
+      <Type>ParameterOneOf</Type>
+      <Constant>BASE</Constant>
+      <Values>
+        <Value>ROMA</Value>
+        <Value>CHINCHILLA</Value>
+      </Values>
+    </Rule>  
+    <Rule>
+      <Name>Engineer Name Check</Name>
+      <Type>ParameterSet</Type>
+      <Constant>ENG</Constant>
+    </Rule>
+    <Rule>
+      <Name>Witness Name Check</Name>
+      <Type>ParameterSet</Type>
+      <Constant>WIT</Constant>
+    </Rule>
+    <Rule>
+      <Name>Casing Stick Up Check</Name>
+      <Type>ParameterSet</Type>
+      <Constant>CSUP</Constant>
+    </Rule>
+    <Rule>
+      <Name>Casing Size Check</Name>
+      <Type>ParameterSet</Type>
+      <Constant>CSGS</Constant>
+    </Rule>
+    <Rule>
+      <Name>Casing Weight Check</Name>
+      <Type>ParameterSet</Type>
+      <Constant>CSGW</Constant>
+    </Rule>
+    <Rule>
+      <Name>Casing Type Check</Name>
+      <Type>ParameterSet</Type>
+      <Constant>CSGT</Constant>
+    </Rule>
+    <Rule>
+      <Name>Depth Channel Unit Check</Name>
+      <Type>ChannelUnit</Type>
+      <Channel>DEPT</Channel>
+      <Value>M</Value>
+    </Rule>
+    <Rule>
+      <Name>Depth Channel Range Check</Name>
+      <Type>ChannelWithin</Type>
+      <Channel>DEPT</Channel>
+      <Values>
+        <MinValueWarning>-10.0</MinValueWarning>
+        <MaxValueWarning>3000.0</MaxValueWarning>
+      </Values>
+    </Rule>
+ 	<Rule>
+      <Name>MCG Gamma Ray Included Check</Name>
+      <Type>ChannelPresent</Type>
+      <Channel>GRGC</Channel>
+    </Rule>
+	<Rule>
+      <Name>MCG Gamma Ray Unit Check</Name>
+      <Type>ChannelUnit</Type>
+      <Channel>GRGC</Channel>
+      <Value>GAPI</Value>
+    </Rule>
+	<Rule>
+      <Name>MCG Gamma Ray Range Check</Name>
+      <Type>ChannelWithin</Type>
+      <Channel>GRGC</Channel>
+      <Hole>OPEN</Hole>
+      <Values>
+        <MinValueError>0</MinValueError>
+        <MinValueWarning>5</MinValueWarning>
+        <MaxValueWarning>175</MaxValueWarning>
+        <MaxValueError>250</MaxValueError>
+      </Values>    
+    </Rule>
+	<Rule>
+      <Name>MCG Gamma Ray Coverage Check</Name>
+      <Type>ChannelCoverage</Type>
+      <Channel>GRGC</Channel>
+      <Hole>OPEN</Hole>
+      <Values>
+        <MinValueWarning>95</MinValueWarning>
+      </Values>    
+    </Rule>
+	<Rule>
+      <Name>MCG External Temperature Included Check</Name>
+      <Type>ChannelPresent</Type>
+      <Channel>CGXT</Channel>
+    </Rule>
+	<Rule>
+      <Name>MCG External Temperature Unit Check</Name>
+      <Type>ChannelUnit</Type>
+      <Channel>CGXT</Channel>
+      <Value>DEGC</Value>
+    </Rule>
+	<Rule>
+      <Name>MCG External Temperature Range Check</Name>
+      <Type>ChannelWithin</Type>
+      <Channel>CGXT</Channel>
+      <Hole>OPEN</Hole>
+      <Values>
+        <MinValueError>25</MinValueError>
+        <MinValueWarning>30</MinValueWarning>
+        <MaxValueWarning>75</MaxValueWarning>
+        <MaxValueError>150</MaxValueError>
+      </Values>    
+    </Rule>
+	<Rule>
+      <Name>MCG External Temperature Coverage Check</Name>
+      <Type>ChannelCoverage</Type>
+      <Channel>CGXT</Channel>
+      <Hole>OPEN</Hole>
+      <Values>
+        <MinValueWarning>95</MinValueWarning>
+      </Values>    
+    </Rule>
+	<Rule>
+      <Name>MCG Borehole Corrected Gamma Ray Included Check</Name>
+      <Type>ChannelPresent</Type>
+      <Channel>GGCE</Channel>
+	  <Severity>Warning</Severity>
+    </Rule>
+	<Rule>
+      <Name>MCG Borehole Corrected Gamma Ray Unit Check</Name>
+      <Type>ChannelUnit</Type>
+      <Channel>GGCE</Channel>
+      <Value>GAPI</Value>
+    </Rule>
+	<Rule>
+      <Name>MCG Borehole Corrected Gamma Ray Range Check</Name>
+      <Type>ChannelWithin</Type>
+      <Channel>GGCE</Channel>
+      <Hole>OPEN</Hole>
+      <Values>
+        <MinValueError>0</MinValueError>
+        <MinValueWarning>5</MinValueWarning>
+        <MaxValueWarning>175</MaxValueWarning>
+        <MaxValueError>250</MaxValueError>
+      </Values>    
+    </Rule>
+	<Rule>
+      <Name>MCG Borehole Corrected Gamma Ray Coverage Check</Name>
+      <Type>ChannelCoverage</Type>
+      <Channel>GGCE</Channel>
+      <Hole>OPEN</Hole>
+      <Values>
+        <MinValueWarning>95</MinValueWarning>
+      </Values>    
+    </Rule>
+	<Rule>
+      <Name>MCG Spontaneous Potential Included Check</Name>
+      <Type>ChannelPresent</Type>
+      <Channel>SPCG</Channel>
+	  <Severity>Warning</Severity>
+    </Rule>
+	<Rule>
+      <Name>MCG Spontaneous Potential Unit Check</Name>
+      <Type>ChannelUnitOneOf</Type>
+      <Channel>SPCG</Channel>
+      <Values>
+        <Value>MV</Value>
+        <Value>mV</Value>
+      </Values>
+    </Rule>
+	<Rule>
+      <Name>MCG Spontaneous Potential Range Check</Name>
+      <Type>ChannelWithin</Type>
+      <Channel>SPCG</Channel>
+      <Hole>OPEN</Hole>
+      <Values>
+        <MinValueWarning>-150</MinValueWarning>
+        <MaxValueWarning>50</MaxValueWarning>
+      </Values>    
+    </Rule>
+	<Rule>
+      <Name>MCG Spontaneous Potential Coverage Check</Name>
+      <Type>ChannelCoverage</Type>
+      <Channel>SPCG</Channel>
+      <Hole>OPEN</Hole>
+      <Values>
+        <MinValueWarning>95</MinValueWarning>
+      </Values>    
+    </Rule>
+	<Rule>
+      <Name>MPD Caliper Included Check</Name>
+      <Type>ChannelPresent</Type>
+      <Channel>CLDC</Channel>
+    </Rule>
+	<Rule>
+      <Name>MPD Caliper Unit Check</Name>
+      <Type>ChannelUnitOneOf</Type>
+      <Channel>CLDC</Channel>
+      <Values>
+        <Value>IN</Value>
+        <Value>MM</Value>
+      </Values>
+    </Rule>
+	<Rule>
+      <Name>MPD Caliper Coverage Check</Name>
+      <Type>ChannelCoverage</Type>
+      <Channel>CLDC</Channel>
+      <Hole>OPEN</Hole>
+      <Values>
+        <MinValueWarning>95</MinValueWarning>
+      </Values>    
+    </Rule>
+	<Rule>
+      <Name>MPD Caliper Range Check</Name>
+      <Type>ChannelAverageWithin</Type>
+      <Channel>CLDC</Channel>
+      <Values>
+        <MinValueWarning>3</MinValueWarning>
+        <MaxValueWarning>15</MaxValueWarning>
+      </Values>    
+    </Rule>
+	<Rule>
+      <Name>MPD Caliper Open Hole Average (Display Only)</Name>
+      <Type>ChannelAverageWithin</Type>
+      <Channel>CLDC</Channel>
+      <Hole>OPEN</Hole>
+      <Values>
+        <MinValueWarning>3</MinValueWarning>
+        <MaxValueWarning>15</MaxValueWarning>
+      </Values>    
+    </Rule>
+	<Rule>
+      <Name>MPD Caliper Casing Check (Display Only)</Name>
+      <Type>ChannelAverageWithin</Type>
+      <Channel>CLDC</Channel>
+      <Hole>CASED</Hole>
+      <Values>
+        <MinValueWarning>3</MinValueWarning>
+        <MaxValueWarning>15</MaxValueWarning>
+      </Values>    
+    </Rule>
+	<Rule>
+      <Name>MPD Density Correction Included Check</Name>
+      <Type>ChannelPresent</Type>
+      <Channel>DCOR</Channel>
+    </Rule>
+	<Rule>
+      <Name>MPD Density Correction Unit Check</Name>
+      <Type>ChannelUnit</Type>
+      <Channel>DCOR</Channel>
+      <Value>G/C3</Value>
+    </Rule>
+	<Rule>
+      <Name>MPD Density Correction Coverage Check</Name>
+      <Type>ChannelCoverage</Type>
+      <Channel>DCOR</Channel>
+      <Hole>OPEN</Hole>
+      <Values>
+        <MinValueWarning>95</MinValueWarning>
+      </Values>    
+    </Rule>
+	<Rule>
+      <Name>MPD Compensated Density Included Check</Name>
+      <Type>ChannelPresent</Type>
+      <Channel>DEN</Channel>
+	  <Severity>Warning</Severity>
+    </Rule>
+	<Rule>
+      <Name>MPD Compensated Density Unit Check</Name>
+      <Type>ChannelUnit</Type>
+      <Channel>DEN</Channel>
+      <Value>G/C3</Value>
+    </Rule>
+	<Rule>
+      <Name>MPD Compensated Density Range Check</Name>
+      <Type>ChannelWithin</Type>
+      <Channel>DEN</Channel>
+      <Hole>OPEN</Hole>
+      <Values>
+        <MinValueError>1.0</MinValueError>
+        <MinValueWarning>1.1</MinValueWarning>
+        <MaxValueWarning>2.8</MaxValueWarning>
+        <MaxValueError>3.15</MaxValueError>
+      </Values>    
+    </Rule>
+	<Rule>
+      <Name>MPD Compensated Density Coverage Check</Name>
+      <Type>ChannelCoverage</Type>
+      <Channel>DEN</Channel>
+      <Hole>OPEN</Hole>
+      <Values>
+        <MinValueWarning>95</MinValueWarning>
+      </Values>    
+    </Rule>
+	<Rule>
+      <Name>MPD Far Spaced Density Included Check</Name>
+      <Type>ChannelPresent</Type>
+      <Channel>DENF</Channel>
+	  <Severity>Warning</Severity>
+    </Rule>
+	<Rule>
+      <Name>MPD Far Spaced Density Unit Check</Name>
+      <Type>ChannelUnit</Type>
+      <Channel>DENF</Channel>
+      <Value>G/C3</Value>
+    </Rule>
+	<Rule>
+      <Name>MPD Far Spaced Density Range Check</Name>
+      <Type>ChannelWithin</Type>
+      <Channel>DENF</Channel>
+      <Hole>OPEN</Hole>
+      <Values>
+        <MinValueError>1.0</MinValueError>
+        <MinValueWarning>1.1</MinValueWarning>
+        <MaxValueWarning>2.8</MaxValueWarning>
+        <MaxValueError>3.15</MaxValueError>
+      </Values>    
+    </Rule>
+	<Rule>
+      <Name>MPD Far Spaced Density Coverage Check</Name>
+      <Type>ChannelCoverage</Type>
+      <Channel>DENF</Channel>
+      <Hole>OPEN</Hole>
+      <Values>
+        <MinValueWarning>95</MinValueWarning>
+      </Values>    
+    </Rule>
+	<Rule>
+      <Name>MPD Near Spaced Density Included Check</Name>
+      <Type>ChannelPresent</Type>
+      <Channel>DENN</Channel>
+	  <Severity>Warning</Severity>
+    </Rule>
+	<Rule>
+      <Name>MPD Near Spaced Density Unit Check</Name>
+      <Type>ChannelUnit</Type>
+      <Channel>DENN</Channel>
+      <Value>G/C3</Value>
+    </Rule>
+	<Rule>
+      <Name>MPD Near Spaced Density Range Check</Name>
+      <Type>ChannelWithin</Type>
+      <Channel>DENN</Channel>
+      <Hole>OPEN</Hole>
+      <Values>
+        <MinValueError>1.0</MinValueError>
+        <MinValueWarning>1.1</MinValueWarning>
+        <MaxValueWarning>2.8</MaxValueWarning>
+        <MaxValueError>3.15</MaxValueError>
+      </Values>    
+    </Rule>
+	<Rule>
+      <Name>MPD Near Spaced Density Channel Check</Name>
+      <Type>ChannelCoverage</Type>
+      <Channel>DENN</Channel>
+      <Hole>OPEN</Hole>
+      <Values>
+        <MinValueWarning>95</MinValueWarning>
+      </Values>    
+    </Rule>
+	<Rule>
+      <Name>MPD Base Density Porosity Included Check</Name>
+      <Type>ChannelPresent</Type>
+      <Channel>DPOR</Channel>
+	  <Severity>Warning</Severity>
+    </Rule>
+	<Rule>
+      <Name>MPD Base Density Porosity Unit Check</Name>
+      <Type>ChannelUnitOneOf</Type>
+      <Channel>DPOR</Channel>
+      <Values>
+        <Value>PERC</Value>
+        <Value>%</Value>
+      </Values>
+    </Rule>
+	<Rule>
+      <Name>MPD Base Density Porosity Range Check</Name>
+      <Type>ChannelWithin</Type>
+      <Channel>DPOR</Channel>
+      <Hole>OPEN</Hole>
+      <Values>
+        <MinValueError>-20.0</MinValueError>
+        <MinValueWarning>0.0</MinValueWarning>
+        <MaxValueWarning>48.0</MaxValueWarning>
+        <MaxValueError>110.0</MaxValueError>
+      </Values>    
+    </Rule>
+	<Rule>
+      <Name>MPD Base Density Porosity Coverage Check</Name>
+      <Type>ChannelCoverage</Type>
+      <Channel>DPOR</Channel>
+      <Hole>OPEN</Hole>
+      <Values>
+        <MinValueWarning>95</MinValueWarning>
+      </Values>    
+    </Rule>
+	<Rule>
+      <Name>MPD Dolomite Density Porosity Included Check</Name>
+      <Type>ChannelPresent</Type>
+      <Channel>DPRD</Channel>
+	  <Severity>Warning</Severity>
+    </Rule>
+	<Rule>
+      <Name>MPD Dolomite Density Porosity Unit Check</Name>
+      <Type>ChannelUnitOneOf</Type>
+      <Channel>DPRD</Channel>
+      <Values>
+        <Value>PERC</Value>
+        <Value>%</Value>
+      </Values>
+    </Rule>
+	<Rule>
+      <Name>MPD Dolomite Density Porosity Range Check</Name>
+      <Type>ChannelWithin</Type>
+      <Channel>DPRD</Channel>
+      <Hole>OPEN</Hole>
+      <Values>
+        <MinValueError>-20.0</MinValueError>
+        <MinValueWarning>0.0</MinValueWarning>
+        <MaxValueWarning>48.0</MaxValueWarning>
+        <MaxValueError>110.0</MaxValueError>
+      </Values>    
+    </Rule>
+	<Rule>
+      <Name>MPD Dolomite Density Porosity Coverage Check</Name>
+      <Type>ChannelCoverage</Type>
+      <Channel>DPRD</Channel>
+      <Hole>OPEN</Hole>
+      <Values>
+        <MinValueWarning>95</MinValueWarning>
+      </Values>    
+    </Rule>
+	<Rule>
+      <Name>MPD Limestone Density Porosity Included Check</Name>
+      <Type>ChannelPresent</Type>
+      <Channel>DPRL</Channel>
+	  <Severity>Warning</Severity>
+    </Rule>
+	<Rule>
+      <Name>MPD Limestone Density Porosity Unit Check</Name>
+      <Type>ChannelUnitOneOf</Type>
+      <Channel>DPRL</Channel>
+      <Values>
+        <Value>PERC</Value>
+        <Value>%</Value>
+      </Values>
+    </Rule>
+	<Rule>
+      <Name>MPD Limestone Density Porosity Range Check</Name>
+      <Type>ChannelWithin</Type>
+      <Channel>DPRL</Channel>
+      <Hole>OPEN</Hole>
+      <Values>
+        <MinValueError>-20.0</MinValueError>
+        <MinValueWarning>0.0</MinValueWarning>
+        <MaxValueWarning>48.0</MaxValueWarning>
+        <MaxValueError>110.0</MaxValueError>
+      </Values>    
+    </Rule>
+	<Rule>
+      <Name>MPD Limestone Density Porosity Coverage Check</Name>
+      <Type>ChannelCoverage</Type>
+      <Channel>DPRL</Channel>
+      <Hole>OPEN</Hole>
+      <Values>
+        <MinValueWarning>95</MinValueWarning>
+      </Values>    
+    </Rule>
+	<Rule>
+      <Name>MPD Sandstone Density Porosity Included Check</Name>
+      <Type>ChannelPresent</Type>
+      <Channel>DPRS</Channel>
+	  <Severity>Warning</Severity>
+    </Rule>
+	<Rule>
+      <Name>MPD Sandstone Density Porosity Unit Check</Name>
+      <Type>ChannelUnitOneOf</Type>
+      <Channel>DPRS</Channel>
+      <Values>
+        <Value>PERC</Value>
+        <Value>%</Value>
+      </Values>
+    </Rule>
+	<Rule>
+      <Name>MPD Sandstone Density Porosity Range Check</Name>
+      <Type>ChannelWithin</Type>
+      <Channel>DPRS</Channel>
+      <Hole>OPEN</Hole>
+      <Values>
+        <MinValueError>-20.0</MinValueError>
+        <MinValueWarning>0.0</MinValueWarning>
+        <MaxValueWarning>48.0</MaxValueWarning>
+        <MaxValueError>110.0</MaxValueError>
+      </Values>    
+    </Rule>
+	<Rule>
+      <Name>MPD Sandstone Density Porosity Coverage Check</Name>
+      <Type>ChannelCoverage</Type>
+      <Channel>DPRS</Channel>
+      <Hole>OPEN</Hole>
+      <Values>
+        <MinValueWarning>95</MinValueWarning>
+      </Values>    
+    </Rule>
+	<Rule>
+      <Name>MPD Vectar Processed Density Included Check</Name>
+      <Type>ChannelPresent</Type>
+      <Channel>HDEN</Channel>
+	  <Severity>Warning</Severity>
+    </Rule>
+	<Rule>
+      <Name>MPD Vectar Processed Density Unit Check</Name>
+      <Type>ChannelUnit</Type>
+      <Channel>HDEN</Channel>
+      <Value>G/C3</Value>
+    </Rule>
+	<Rule>
+      <Name>MPD Vectar Processed Density Range Check</Name>
+      <Type>ChannelWithin</Type>
+      <Channel>HDEN</Channel>
+      <Hole>OPEN</Hole>
+      <Values>
+        <MinValueError>1.0</MinValueError>
+        <MinValueWarning>1.1</MinValueWarning>
+        <MaxValueWarning>2.8</MaxValueWarning>
+        <MaxValueError>3.15</MaxValueError>
+      </Values>    
+    </Rule>
+	<Rule>
+      <Name>MPD Vectar Processed Density Coverage Check</Name>
+      <Type>ChannelCoverage</Type>
+      <Channel>HDEN</Channel>
+      <Hole>OPEN</Hole>
+      <Values>
+        <MinValueWarning>95</MinValueWarning>
+      </Values>    
+    </Rule>
+	<Rule>
+      <Name>MPD PE Included Check</Name>
+      <Type>ChannelPresent</Type>
+      <Channel>PDPE</Channel>
+    </Rule>
+	<Rule>
+      <Name>MPD PE Unit Check</Name>
+      <Type>ChannelUnit</Type>
+      <Channel>PDPE</Channel>
+      <Value>B/E</Value>
+    </Rule>
+	<Rule>
+      <Name>MPD PE Range Check</Name>
+      <Type>ChannelWithin</Type>
+      <Channel>PDPE</Channel>
+      <Hole>OPEN</Hole>
+      <Values>
+        <MinValueError>0.2</MinValueError>
+        <MinValueWarning>1.0</MinValueWarning>
+        <MaxValueWarning>5.0</MaxValueWarning>
+        <MaxValueError>10.0</MaxValueError>
+      </Values>    
+    </Rule>
+	<Rule>
+      <Name>MPD PE Coverage Check</Name>
+      <Type>ChannelCoverage</Type>
+      <Channel>PDPE</Channel>
+      <Hole>OPEN</Hole>
+      <Values>
+        <MinValueWarning>95</MinValueWarning>
+      </Values>    
+    </Rule>
+	<Rule>
+      <Name>MDN Base Neutron Porosity Included Check</Name>
+      <Type>ChannelPresent</Type>
+      <Channel>NPOR</Channel>
+	  <Severity>Warning</Severity>
+    </Rule>
+	<Rule>
+      <Name>MDN Base Neutron Porosity Unit Check</Name>
+      <Type>ChannelUnitOneOf</Type>
+      <Channel>NPOR</Channel>
+      <Values>
+        <Value>PERC</Value>
+        <Value>%</Value>
+      </Values>
+    </Rule>
+	<Rule>
+      <Name>MDN Base Neutron Porosity Range Check</Name>
+      <Type>ChannelWithin</Type>
+      <Channel>NPOR</Channel>
+      <Hole>OPEN</Hole>
+      <Values>
+        <MinValueError>-3.0</MinValueError>
+        <MinValueWarning>3.0</MinValueWarning>
+        <MaxValueWarning>48.0</MaxValueWarning>
+        <MaxValueError>110.0</MaxValueError>
+      </Values>    
+    </Rule>
+	<Rule>
+      <Name>MDN Base Neutron Porosity Coverage Check</Name>
+      <Type>ChannelCoverage</Type>
+      <Channel>NPOR</Channel>
+      <Hole>OPEN</Hole>
+      <Values>
+        <MinValueWarning>95</MinValueWarning>
+      </Values>    
+    </Rule>
+	<Rule>
+      <Name>MDN Dolomite Neutron Porosity Included Check</Name>
+      <Type>ChannelPresent</Type>
+      <Channel>NPRD</Channel>
+	  <Severity>Warning</Severity>
+    </Rule>
+	<Rule>
+      <Name>MDN Dolomite Neutron Porosity Unit Check</Name>
+      <Type>ChannelUnitOneOf</Type>
+      <Channel>NPRD</Channel>
+      <Values>
+        <Value>PERC</Value>
+        <Value>%</Value>
+      </Values>
+    </Rule>
+	<Rule>
+      <Name>MDN Dolomite Neutron Porosity Range Check</Name>
+      <Type>ChannelWithin</Type>
+      <Channel>NPRD</Channel>
+      <Hole>OPEN</Hole>
+      <Values>
+        <MinValueError>-5.0</MinValueError>
+        <MinValueWarning>0.0</MinValueWarning>
+        <MaxValueWarning>48.0</MaxValueWarning>
+        <MaxValueError>110.0</MaxValueError>
+      </Values>    
+    </Rule>
+	<Rule>
+      <Name>MDN Dolomite Neutron Porosity Coverage Check</Name>
+      <Type>ChannelCoverage</Type>
+      <Channel>NPRD</Channel>
+      <Hole>OPEN</Hole>
+      <Values>
+        <MinValueWarning>95</MinValueWarning>
+      </Values>    
+    </Rule>
+	<Rule>
+      <Name>MDN Limestone Neutron Porosity Included Check</Name>
+      <Type>ChannelPresent</Type>
+      <Channel>NPRL</Channel>
+	  <Severity>Warning</Severity>
+    </Rule>
+	<Rule>
+      <Name>MDN Limestone Neutron Porosity Unit Check</Name>
+      <Type>ChannelUnitOneOf</Type>
+      <Channel>NPRL</Channel>
+      <Values>
+        <Value>PERC</Value>
+        <Value>%</Value>
+      </Values>
+    </Rule>
+	<Rule>
+      <Name>MDN Limestone Neutron Porosity Range Check</Name>
+      <Type>ChannelWithin</Type>
+      <Channel>NPRL</Channel>
+      <Hole>OPEN</Hole>
+      <Values>
+        <MinValueError>-3.0</MinValueError>
+        <MinValueWarning>0.0</MinValueWarning>
+        <MaxValueWarning>48.0</MaxValueWarning>
+        <MaxValueError>110.0</MaxValueError>
+      </Values>    
+    </Rule>
+	<Rule>
+      <Name>MDN Limestone Neutron Porosity Coverage Check</Name>
+      <Type>ChannelCoverage</Type>
+      <Channel>NPRL</Channel>
+      <Hole>OPEN</Hole>
+      <Values>
+        <MinValueWarning>95</MinValueWarning>
+      </Values>    
+    </Rule>
+	<Rule>
+      <Name>MDN Sandstone Neutron Porosity Included Check</Name>
+      <Type>ChannelPresent</Type>
+      <Channel>NPRS</Channel>
+	  <Severity>Warning</Severity>
+    </Rule>
+	<Rule>
+      <Name>MDN Sandstone Neutron Porosity Unit Check</Name>
+      <Type>ChannelUnitOneOf</Type>
+      <Channel>NPRS</Channel>
+      <Values>
+        <Value>PERC</Value>
+        <Value>%</Value>
+      </Values>
+    </Rule>
+	<Rule>
+      <Name>MDN Sandstone Neutron Porosity Range Check</Name>
+      <Type>ChannelWithin</Type>
+      <Channel>NPRS</Channel>
+      <Hole>OPEN</Hole>
+      <Values>
+        <MinValueError>-8.0</MinValueError>
+        <MinValueWarning>0.0</MinValueWarning>
+        <MaxValueWarning>48.0</MaxValueWarning>
+        <MaxValueError>110.0</MaxValueError>
+      </Values>    
+    </Rule>
+	<Rule>
+      <Name>MDN Sandstone Neutron Porosity Coverage Check</Name>
+      <Type>ChannelCoverage</Type>
+      <Channel>NPRS</Channel>
+      <Hole>OPEN</Hole>
+      <Values>
+        <MinValueWarning>95</MinValueWarning>
+      </Values>    
+    </Rule>
+	<Rule>
+      <Name>MSS 3-5' Compensated Sonic DT Included Check</Name>
+      <Type>ChannelPresent</Type>
+      <Channel>DT35</Channel>
+    </Rule>
+	<Rule>
+      <Name>MSS 3-5' Compensated Sonic DT Unit Check</Name>
+      <Type>ChannelUnit</Type>
+      <Channel>DT35</Channel>
+      <Value>US/F</Value>
+    </Rule>
+	<Rule>
+      <Name>MSS 3-5' Compensated Sonic DT Range Check</Name>
+      <Type>ChannelWithin</Type>
+      <Channel>DT35</Channel>
+      <Hole>OPEN</Hole>
+	  <SkipBelowCasing>2.0</SkipBelowCasing>
+      <Values>
+        <MinValueError>40</MinValueError>
+        <MinValueWarning>50</MinValueWarning>
+        <MaxValueWarning>150</MaxValueWarning>
+        <MaxValueError>189</MaxValueError>
+      </Values>    
+    </Rule>
+	<Rule>
+      <Name>MSS 3-5' Compensated Sonic DT Casing Check</Name>
+      <Type>ChannelAverageWithin</Type>
+      <Channel>DT35</Channel>
+      <Hole>CASED</Hole>
+      <Values>
+        <MinValueError>50</MinValueError>
+        <MinValueWarning>55</MinValueWarning>
+        <MaxValueWarning>59</MaxValueWarning>
+        <MaxValueError>64</MaxValueError>
+      </Values>    
+    </Rule>
+	<Rule>
+      <Name>MSS 3-5' Compensated Sonic DT Coverage Check</Name>
+      <Type>ChannelCoverage</Type>
+      <Channel>DT35</Channel>
+      <Hole>OPEN</Hole>
+      <Values>
+        <MinValueWarning>95</MinValueWarning>
+      </Values>    
+    </Rule>
+	<Rule>
+      <Name>MSS 3' Transit Time Included Check</Name>
+      <Type>ChannelPresent</Type>
+      <Channel>TR21</Channel>
+    </Rule>
+	<Rule>
+      <Name>MSS 3' Transit Time Unit Check</Name>
+      <Type>ChannelUnit</Type>
+      <Channel>TR21</Channel>
+      <Value>US</Value>
+    </Rule>
+	<Rule>
+      <Name>MSS 4' Transit Time Included Check</Name>
+      <Type>ChannelPresent</Type>
+      <Channel>TR11</Channel>
+    </Rule>
+	<Rule>
+      <Name>MSS 4' Transit Time Unit Check</Name>
+      <Type>ChannelUnit</Type>
+      <Channel>TR11</Channel>
+      <Value>US</Value>
+    </Rule>
+	<Rule>
+      <Name>MSS 5' Transit Time Included Check</Name>
+      <Type>ChannelPresent</Type>
+      <Channel>TR22</Channel>
+    </Rule>
+	<Rule>
+      <Name>MSS 5' Transit Time Unit Check</Name>
+      <Type>ChannelUnit</Type>
+      <Channel>TR22</Channel>
+      <Value>US</Value>
+    </Rule>
+	<Rule>
+      <Name>MSS 6' Transit Time Included Check</Name>
+      <Type>ChannelPresent</Type>
+      <Channel>TR12</Channel>
+    </Rule>
+	<Rule>
+      <Name>MSS 6' Transit Time Unit Check</Name>
+      <Type>ChannelUnit</Type>
+      <Channel>TR12</Channel>
+      <Value>US</Value>
+    </Rule>
+	<Rule>
+      <Name>MDL Deep Laterolog Included Check</Name>
+      <Type>ChannelPresent</Type>
+      <Channel>DDLL</Channel>
+	  <Severity>Warning</Severity>
+    </Rule>
+	<Rule>
+      <Name>MDL Deep Laterolog Unit Check</Name>
+      <Type>ChannelUnit</Type>
+      <Channel>DDLL</Channel>
+      <Value>OHMM</Value>
+    </Rule>
+	<Rule>
+      <Name>MDL Deep Laterolog Range Check</Name>
+      <Type>ChannelWithin</Type>
+      <Channel>DDLL</Channel>
+      <Hole>OPEN</Hole>
+	  <SkipBelowCasing>4.0</SkipBelowCasing>
+      <Values>
+        <MinValueError>0.2</MinValueError>
+        <MinValueWarning>1</MinValueWarning>
+        <MaxValueWarning>1000</MaxValueWarning>
+        <MaxValueError>2000</MaxValueError>
+      </Values>    
+    </Rule>
+	<Rule>
+      <Name>MDL Deep Laterolog Coverage Check</Name>
+      <Type>ChannelCoverage</Type>
+      <Channel>DDLL</Channel>
+      <Hole>OPEN</Hole>
+      <Values>
+        <MinValueWarning>95</MinValueWarning>
+      </Values>    
+    </Rule>
+	<Rule>
+      <Name>MDL Shallow Laterolog Included Check</Name>
+      <Type>ChannelPresent</Type>
+      <Channel>DSLL</Channel>
+	  <Severity>Warning</Severity>
+    </Rule>
+	<Rule>
+      <Name>MDL Shallow Laterolog Unit Check</Name>
+      <Type>ChannelUnit</Type>
+      <Channel>DSLL</Channel>
+      <Value>OHMM</Value>
+    </Rule>
+	<Rule>
+      <Name>MDL Shallow Laterolog Range Check</Name>
+      <Type>ChannelWithin</Type>
+      <Channel>DSLL</Channel>
+      <Hole>OPEN</Hole>
+	  <SkipBelowCasing>2.0</SkipBelowCasing>
+      <Values>
+        <MinValueError>0.2</MinValueError>
+        <MinValueWarning>1</MinValueWarning>
+        <MaxValueWarning>1000</MaxValueWarning>
+        <MaxValueError>2000</MaxValueError>
+      </Values>    
+    </Rule>
+	<Rule>
+      <Name>MDL Shallow Laterolog Coverage Check</Name>
+      <Type>ChannelCoverage</Type>
+      <Channel>DSLL</Channel>
+      <Hole>OPEN</Hole>
+      <Values>
+        <MinValueWarning>95</MinValueWarning>
+      </Values>    
+    </Rule>
+	<Rule>
+      <Name>MDL Spontaneous Potential Included Check</Name>
+      <Type>ChannelPresent</Type>
+      <Channel>SPDL</Channel>
+	  <Severity>Warning</Severity>
+    </Rule>
+	<Rule>
+      <Name>MDL Spontaneous Potential Unit Check</Name>
+      <Type>ChannelUnit</Type>
+      <Channel>SPDL</Channel>
+      <Value>MV</Value>
+    </Rule>
+	<Rule>
+      <Name>MDL Spontaneous Potential Channel Range Check</Name>
+      <Type>ChannelWithin</Type>
+      <Channel>SPDL</Channel>
+      <Hole>OPEN</Hole>
+	  <SkipBelowCasing>5.0</SkipBelowCasing>
+      <Values>
+        <MinValueWarning>0</MinValueWarning>
+        <MaxValueWarning>80</MaxValueWarning>
+      </Values>    
+    </Rule>
+	<Rule>
+      <Name>MDL Spontaneous Potential Channel Coverage Check</Name>
+      <Type>ChannelCoverage</Type>
+      <Channel>SPDL</Channel>
+      <Hole>OPEN</Hole>
+      <Values>
+        <MinValueWarning>95</MinValueWarning>
+      </Values>    
+    </Rule>
+	<Rule>
+      <Name>MFE Shallow FE (Phase Corrected) Included Check</Name>
+      <Type>ChannelPresent</Type>
+      <Channel>FEFC</Channel>
+	  <Severity>Warning</Severity>
+    </Rule>
+	<Rule>
+      <Name>MFE Shallow FE (Phase Corrected) Unit Check</Name>
+      <Type>ChannelUnit</Type>
+      <Channel>FEFC</Channel>
+      <Value>OHMM</Value>
+    </Rule>
+	<Rule>
+      <Name>MFE Shallow FE (Phase Corrected) Range Check</Name>
+      <Type>ChannelWithin</Type>
+      <Channel>FEFC</Channel>
+      <Hole>OPEN</Hole>
+	  <SkipBelowCasing>2.0</SkipBelowCasing>
+      <Values>
+        <MinValueError>0.1</MinValueError>
+        <MinValueWarning>1</MinValueWarning>
+        <MaxValueWarning>1000</MaxValueWarning>
+        <MaxValueError>2000</MaxValueError>
+      </Values>    
+    </Rule>
+	<Rule>
+      <Name>MFE Shallow FE (Phase Corrected) Coverage Check</Name>
+      <Type>ChannelCoverage</Type>
+      <Channel>FEFC</Channel>
+      <Hole>OPEN</Hole>
+      <Values>
+        <MinValueWarning>95</MinValueWarning>
+      </Values>    
+    </Rule>
+	<Rule>
+      <Name>MFE Shallow FE Included Check</Name>
+      <Type>ChannelPresent</Type>
+      <Channel>FEFE</Channel>
+	  <Severity>Warning</Severity>
+    </Rule>
+	<Rule>
+      <Name>MFE Shallow FE Unit Check</Name>
+      <Type>ChannelUnit</Type>
+      <Channel>FEFE</Channel>
+      <Value>OHMM</Value>
+    </Rule>
+	<Rule>
+      <Name>MFE Shallow FE Range Check</Name>
+      <Type>ChannelWithin</Type>
+      <Channel>FEFE</Channel>
+      <Hole>OPEN</Hole>
+	  <SkipBelowCasing>2.0</SkipBelowCasing>
+      <Values>
+        <MinValueError>0.1</MinValueError>
+        <MinValueWarning>1</MinValueWarning>
+        <MaxValueWarning>1000</MaxValueWarning>
+        <MaxValueError>2000</MaxValueError>
+      </Values>    
+    </Rule>
+	<Rule>
+      <Name>MFE Shallow FE Coverage Check</Name>
+      <Type>ChannelCoverage</Type>
+      <Channel>FEFE</Channel>
+      <Hole>OPEN</Hole>
+      <Values>
+        <MinValueWarning>95</MinValueWarning>
+      </Values>    
+    </Rule>
+	<Rule>
+      <Name>MMR Caliper Included Check</Name>
+      <Type>ChannelPresent</Type>
+      <Channel>MATC</Channel>
+	  <Severity>Warning</Severity>
+    </Rule>
+	<Rule>
+      <Name>MMR Caliper Unit Check</Name>
+      <Type>ChannelUnit</Type>
+      <Channel>MATC</Channel>
+      <Value>IN</Value>
+    </Rule>
+	<Rule>
+      <Name>MMR Caliper Coverage Check</Name>
+      <Type>ChannelCoverage</Type>
+      <Channel>MATC</Channel>
+      <Hole>OPEN</Hole>
+      <Values>
+        <MinValueWarning>95</MinValueWarning>
+      </Values>    
+    </Rule>
+	<Rule>
+      <Name>MMR MicroRes Resistance (S) Included Check</Name>
+      <Type>ChannelPresent</Type>
+      <Channel>MRRS</Channel>
+	  <Severity>Warning</Severity>
+    </Rule>
+	<Rule>
+      <Name>MMR MicroRes Resistance (S) Unit Check</Name>
+      <Type>ChannelUnit</Type>
+      <Channel>MRRS</Channel>
+      <Value>OHMM</Value>
+    </Rule>
+		<Rule>
+      <Name>MMR MicroRes Resistance (S) Range Check</Name>
+      <Type>ChannelWithin</Type>
+      <Channel>MRRS</Channel>
+      <Hole>OPEN</Hole>
+	  <SkipBelowCasing>1.0</SkipBelowCasing>
+      <Values>
+        <MinValueError>0.1</MinValueError>
+        <MinValueWarning>1</MinValueWarning>
+        <MaxValueWarning>1000</MaxValueWarning>
+        <MaxValueError>2000</MaxValueError>
+      </Values>    
+    </Rule>
+	<Rule>
+      <Name>MMR MicroRes Resistance (S) Coverage Check</Name>
+      <Type>ChannelCoverage</Type>
+      <Channel>MRRS</Channel>
+      <Hole>OPEN</Hole>
+      <Values>
+        <MinValueWarning>95</MinValueWarning>
+      </Values>    
+    </Rule>
+	<Rule>
+      <Name>MAI Array Induction Res 20 Included Check</Name>
+      <Type>ChannelPresent</Type>
+      <Channel>R20O</Channel>
+	  <Severity>Warning</Severity>
+    </Rule>
+	<Rule>
+      <Name>MAI Array Induction Res 20 Unit Check</Name>
+      <Type>ChannelUnit</Type>
+      <Channel>R20O</Channel>
+      <Value>OHMM</Value>
+    </Rule>
+	<Rule>
+      <Name>MAI Array Induction Res 20 Range Check</Name>
+      <Type>ChannelWithin</Type>
+      <Channel>R20O</Channel>
+      <Hole>OPEN</Hole>
+	  <SkipBelowCasing>2.0</SkipBelowCasing>
+      <Values>
+        <MinValueError>0.1</MinValueError>
+        <MinValueWarning>1</MinValueWarning>
+        <MaxValueWarning>1000</MaxValueWarning>
+        <MaxValueError>2000</MaxValueError>
+      </Values>    
+    </Rule>
+	<Rule>
+      <Name>MAI Array Induction Res 20 Coverage Check</Name>
+      <Type>ChannelCoverage</Type>
+      <Channel>R20O</Channel>
+      <Hole>OPEN</Hole>
+      <Values>
+        <MinValueWarning>95</MinValueWarning>
+      </Values>    
+    </Rule>
+	<Rule>
+      <Name>MAI Array Induction Res 30 Included Check</Name>
+      <Type>ChannelPresent</Type>
+      <Channel>R30O</Channel>
+	  <Severity>Warning</Severity>
+    </Rule>
+	<Rule>
+      <Name>MAI Array Induction Res 30 Unit Check</Name>
+      <Type>ChannelUnit</Type>
+      <Channel>R30O</Channel>
+      <Value>OHMM</Value>
+    </Rule>
+	<Rule>
+      <Name>MAI Array Induction Res 30 Range Check</Name>
+      <Type>ChannelWithin</Type>
+      <Channel>R30O</Channel>
+      <Hole>OPEN</Hole>
+	  <SkipBelowCasing>2.0</SkipBelowCasing>
+      <Values>
+        <MinValueError>0.1</MinValueError>
+        <MinValueWarning>1</MinValueWarning>
+        <MaxValueWarning>1000</MaxValueWarning>
+        <MaxValueError>2000</MaxValueError>
+      </Values>    
+    </Rule>
+	<Rule>
+      <Name>MAI Array Induction Res 30 Coverage Check</Name>
+      <Type>ChannelCoverage</Type>
+      <Channel>R30O</Channel>
+      <Hole>OPEN</Hole>
+      <Values>
+        <MinValueWarning>95</MinValueWarning>
+      </Values>    
+    </Rule>
+	<Rule>
+      <Name>MAI Array Induction Res 40 Included Check</Name>
+      <Type>ChannelPresent</Type>
+      <Channel>R40O</Channel>
+	  <Severity>Warning</Severity>
+    </Rule>
+	<Rule>
+      <Name>MAI Array Induction Res 40 Unit Check</Name>
+      <Type>ChannelUnit</Type>
+      <Channel>R40O</Channel>
+      <Value>OHMM</Value>
+    </Rule>
+	<Rule>
+      <Name>MAI Array Induction Res 40 Range Check</Name>
+      <Type>ChannelWithin</Type>
+      <Channel>R40O</Channel>
+      <Hole>OPEN</Hole>
+	  <SkipBelowCasing>2.0</SkipBelowCasing>
+      <Values>
+        <MinValueError>0.1</MinValueError>
+        <MinValueWarning>1</MinValueWarning>
+        <MaxValueWarning>1000</MaxValueWarning>
+        <MaxValueError>2000</MaxValueError>
+      </Values>    
+    </Rule>
+	<Rule>
+      <Name>MAI Array Induction Res 40 Coverage Check</Name>
+      <Type>ChannelCoverage</Type>
+      <Channel>R40O</Channel>
+      <Hole>OPEN</Hole>
+      <Values>
+        <MinValueWarning>95</MinValueWarning>
+      </Values>    
+    </Rule>
+	<Rule>
+      <Name>MAI Array Induction Res 60 Included Check</Name>
+      <Type>ChannelPresent</Type>
+      <Channel>R60O</Channel>
+	  <Severity>Warning</Severity>
+    </Rule>
+	<Rule>
+      <Name>MAI Array Induction Res 60 Unit Check</Name>
+      <Type>ChannelUnit</Type>
+      <Channel>R60O</Channel>
+      <Value>OHMM</Value>
+    </Rule>
+	<Rule>
+      <Name>MAI Array Induction Res 60 Range Check</Name>
+      <Type>ChannelWithin</Type>
+      <Channel>R60O</Channel>
+      <Hole>OPEN</Hole>
+	  <SkipBelowCasing>2.0</SkipBelowCasing>
+      <Values>
+        <MinValueError>0.1</MinValueError>
+        <MinValueWarning>1</MinValueWarning>
+        <MaxValueWarning>1000</MaxValueWarning>
+        <MaxValueError>2000</MaxValueError>
+      </Values>    
+    </Rule>
+	<Rule>
+      <Name>MAI Array Induction Res 60 Coverage Check</Name>
+      <Type>ChannelCoverage</Type>
+      <Channel>R60O</Channel>
+      <Hole>OPEN</Hole>
+      <Values>
+        <MinValueWarning>95</MinValueWarning>
+      </Values>    
+    </Rule>
+	<Rule>
+      <Name>MAI Array Induction Res 85 Included Check</Name>
+      <Type>ChannelPresent</Type>
+      <Channel>R85O</Channel>
+	  <Severity>Warning</Severity>
+    </Rule>
+	<Rule>
+      <Name>MAI Array Induction Res 85 Unit Check</Name>
+      <Type>ChannelUnit</Type>
+      <Channel>R85O</Channel>
+      <Value>OHMM</Value>
+    </Rule>
+	<Rule>
+      <Name>MAI Array Induction Res 85 Range Check</Name>
+      <Type>ChannelWithin</Type>
+      <Channel>R85O</Channel>
+      <Hole>OPEN</Hole>
+	  <SkipBelowCasing>2.0</SkipBelowCasing>
+      <Values>
+        <MinValueError>0.1</MinValueError>
+        <MinValueWarning>1</MinValueWarning>
+        <MaxValueWarning>1000</MaxValueWarning>
+        <MaxValueError>2000</MaxValueError>
+      </Values>    
+    </Rule>
+	<Rule>
+      <Name>MAI Array Induction Res 85 Coverage Check</Name>
+      <Type>ChannelCoverage</Type>
+      <Channel>R85O</Channel>
+      <Hole>OPEN</Hole>
+      <Values>
+        <MinValueWarning>95</MinValueWarning>
+      </Values>    
+    </Rule>
+	<Rule>
+      <Name>MAI Array Induction Res RT Included Check</Name>
+      <Type>ChannelPresent</Type>
+      <Channel>RTAO</Channel>
+	  <Severity>Warning</Severity>
+    </Rule>
+	<Rule>
+      <Name>MAI Array Induction Res RT Unit Check</Name>
+      <Type>ChannelUnit</Type>
+      <Channel>RTAO</Channel>
+      <Value>OHMM</Value>
+    </Rule>
+	<Rule>
+      <Name>MAI Array Induction Res RT Range Check</Name>
+      <Type>ChannelWithin</Type>
+      <Channel>RTAO</Channel>
+      <Hole>OPEN</Hole>
+	  <SkipBelowCasing>2.0</SkipBelowCasing>
+      <Values>
+        <MinValueError>0.1</MinValueError>
+        <MinValueWarning>1</MinValueWarning>
+        <MaxValueWarning>1000</MaxValueWarning>
+        <MaxValueError>2000</MaxValueError>
+      </Values>    
+    </Rule>
+	<Rule>
+      <Name>MAI Array Induction Res RT Coverage Check</Name>
+      <Type>ChannelCoverage</Type>
+      <Channel>RTAO</Channel>
+      <Hole>OPEN</Hole>
+      <Values>
+        <MinValueWarning>95</MinValueWarning>
+      </Values>    
+    </Rule>
+	<Rule>
+      <Name>MAI Medium Induction Included Check</Name>
+      <Type>ChannelPresent</Type>
+      <Channel>RILM</Channel>
+	  <Severity>Warning</Severity>
+    </Rule>
+	<Rule>
+      <Name>MAI Medium Induction Unit Check</Name>
+      <Type>ChannelUnit</Type>
+      <Channel>RILM</Channel>
+      <Value>OHMM</Value>
+    </Rule>
+	<Rule>
+      <Name>MAI Medium Induction Range Check</Name>
+      <Type>ChannelWithin</Type>
+      <Channel>RILM</Channel>
+      <Hole>OPEN</Hole>
+	  <SkipBelowCasing>2.0</SkipBelowCasing>
+      <Values>
+        <MinValueError>0.1</MinValueError>
+        <MinValueWarning>1</MinValueWarning>
+        <MaxValueWarning>1000</MaxValueWarning>
+        <MaxValueError>2000</MaxValueError>
+      </Values>    
+    </Rule>
+	<Rule>
+      <Name>MAI Medium Induction Coverage Check</Name>
+      <Type>ChannelCoverage</Type>
+      <Channel>RILM</Channel>
+      <Hole>OPEN</Hole>
+      <Values>
+        <MinValueWarning>95</MinValueWarning>
+      </Values>    
+    </Rule>
+	<Rule>
+      <Name>MAI Deep Induction Included Check</Name>
+      <Type>ChannelPresent</Type>
+      <Channel>RILD</Channel>
+	  <Severity>Warning</Severity>
+    </Rule>
+	<Rule>
+      <Name>MAI Deep Induction Unit Check</Name>
+      <Type>ChannelUnit</Type>
+      <Channel>RILD</Channel>
+      <Value>OHMM</Value>
+    </Rule>
+	<Rule>
+      <Name>MAI Deep Induction Range Check</Name>
+      <Type>ChannelWithin</Type>
+      <Channel>RILD</Channel>
+      <Hole>OPEN</Hole>
+	  <SkipBelowCasing>2.0</SkipBelowCasing>
+      <Values>
+        <MinValueError>0.1</MinValueError>
+        <MinValueWarning>1</MinValueWarning>
+        <MaxValueWarning>1000</MaxValueWarning>
+        <MaxValueError>2000</MaxValueError>
+      </Values>    
+    </Rule>
+	<Rule>
+      <Name>MAI Deep Induction Coverage Check</Name>
+      <Type>ChannelCoverage</Type>
+      <Channel>RILD</Channel>
+      <Hole>OPEN</Hole>
+      <Values>
+        <MinValueWarning>95</MinValueWarning>
+      </Values>    
+    </Rule>
+	<Rule>
+      <Name>SGS Corrected Gamma Ray Included Check</Name>
+      <Type>ChannelPresent</Type>
+      <Channel>GCGR</Channel>
+	  <Severity>Warning</Severity>
+    </Rule>
+	<Rule>
+      <Name>SGS Corrected Gamma Ray Unit Check</Name>
+      <Type>ChannelUnit</Type>
+      <Channel>GCGR</Channel>
+      <Value>GAPI</Value>
+    </Rule>
+	<Rule>
+      <Name>SGS Corrected Gamma Ray Range Check</Name>
+      <Type>ChannelWithin</Type>
+      <Channel>GCGR</Channel>
+      <Hole>OPEN</Hole>
+      <Values>
+        <MinValueError>0</MinValueError>
+        <MinValueWarning>5</MinValueWarning>
+        <MaxValueWarning>175</MaxValueWarning>
+        <MaxValueError>250</MaxValueError>
+      </Values>    
+    </Rule>
+	<Rule>
+      <Name>SGS Corrected Gamma Ray Coverage Check</Name>
+      <Type>ChannelCoverage</Type>
+      <Channel>GCGR</Channel>
+      <Hole>OPEN</Hole>
+      <Values>
+        <MinValueWarning>95</MinValueWarning>
+      </Values>    
+    </Rule>
+	<Rule>
+      <Name>SGS Potassium Gamma Ray Included Check</Name>
+      <Type>ChannelPresent</Type>
+      <Channel>GRPO</Channel>
+	  <Severity>Warning</Severity>
+    </Rule>
+	<Rule>
+      <Name>SGS Potassium Gamma Ray Unit Check</Name>
+      <Type>ChannelUnit</Type>
+      <Channel>GRPO</Channel>
+      <Value>PERC</Value>
+    </Rule>
+    <Rule>
+      <Name>SGS Potassium Gamma Ray Range Check</Name>
+      <Type>ChannelWithin</Type>
+      <Channel>GRPO</Channel>
+      <Hole>OPEN</Hole>
+      <Values>
+        <MinValueError>-0.01</MinValueError>
+        <MinValueWarning>0.01</MinValueWarning>
+        <MaxValueWarning>30.0</MaxValueWarning>
+        <MaxValueError>50.0</MaxValueError>
+      </Values>
+    </Rule>
+    <Rule>
+      <Name>SGS Potassium Gamma Ray Coverage Check</Name>
+      <Type>ChannelCoverage</Type>
+      <Channel>GRPO</Channel>
+      <Values>
+        <MinValueWarning>95.00</MinValueWarning>
+      </Values>
+    </Rule>
+	<Rule>
+      <Name>SGS Uranium Gamma Ray Included Check</Name>
+      <Type>ChannelPresent</Type>
+      <Channel>GRUR</Channel>
+	  <Severity>Warning</Severity>
+    </Rule>
+	<Rule>
+      <Name>SGS Uranium Gamma Ray Unit Check</Name>
+      <Type>ChannelUnit</Type>
+      <Channel>GRUR</Channel>
+      <Value>PPM</Value>
+    </Rule>
+    <Rule>
+      <Name>SGS Uranium Gamma Ray Range Check</Name>
+      <Type>ChannelWithin</Type>
+      <Channel>GRUR</Channel>
+      <Hole>OPEN</Hole>
+      <Values>
+        <MinValueError>0.0</MinValueError>
+        <MinValueWarning>0.01</MinValueWarning>
+        <MaxValueWarning>30.0</MaxValueWarning>
+        <MaxValueError>50.0</MaxValueError>
+      </Values>
+    </Rule>
+    <Rule>
+      <Name>SGS Uranium Gamma Ray Coverage Check</Name>
+      <Type>ChannelCoverage</Type>
+      <Channel>GRUR</Channel>
+      <Values>
+        <MinValueWarning>95.00</MinValueWarning>
+      </Values>
+    </Rule>
+	<Rule>
+      <Name>SGS Thorium Gamma Ray Included Check</Name>
+      <Type>ChannelPresent</Type>
+      <Channel>GRTH</Channel>
+	  <Severity>Warning</Severity>
+    </Rule>
+	<Rule>
+      <Name>SGS Thorium Gamma Ray Unit Check</Name>
+      <Type>ChannelUnit</Type>
+      <Channel>GRTH</Channel>
+      <Value>PPM</Value>
+    </Rule>
+    <Rule>
+      <Name>SGS Thorium Gamma Ray Range Check</Name>
+      <Type>ChannelWithin</Type>
+      <Channel>GRTH</Channel>
+      <Hole>OPEN</Hole>
+      <Values>
+        <MinValueError>0.0</MinValueError>
+        <MinValueWarning>5.0</MinValueWarning>
+        <MaxValueWarning>30.0</MaxValueWarning>
+        <MaxValueError>50.0</MaxValueError>
+      </Values>
+    </Rule>
+    <Rule>
+      <Name>SGS Thorium Gamma Ray Coverage Check</Name>
+      <Type>ChannelCoverage</Type>
+      <Channel>GRTH</Channel>
+      <Values>
+        <MinValueWarning>95.00</MinValueWarning>
+      </Values>
+    </Rule>
+	<Rule>
+      <Name>SGS Gamma Ray Included Check</Name>
+      <Type>ChannelPresent</Type>
+      <Channel>GRSG</Channel>
+	  <Severity>Warning</Severity>
+    </Rule>
+	<Rule>
+      <Name>SGS Gamma Ray Unit Check</Name>
+      <Type>ChannelUnit</Type>
+      <Channel>GRSG</Channel>
+      <Value>GAPI</Value>
+    </Rule>
+	<Rule>
+      <Name>SGS Gamma Ray Range Check</Name>
+      <Type>ChannelWithin</Type>
+      <Channel>GRSG</Channel>
+      <Hole>OPEN</Hole>
+      <Values>
+        <MinValueError>0</MinValueError>
+        <MinValueWarning>5</MinValueWarning>
+        <MaxValueWarning>175</MaxValueWarning>
+        <MaxValueError>250</MaxValueError>
+      </Values>    
+    </Rule>
+	<Rule>
+      <Name>SGS Gamma Ray Coverage Check</Name>
+      <Type>ChannelCoverage</Type>
+      <Channel>GRSG</Channel>
+      <Hole>OPEN</Hole>
+      <Values>
+        <MinValueWarning>95</MinValueWarning>
+      </Values>    
+    </Rule>
+  </Rules>
+</RulesFile>
