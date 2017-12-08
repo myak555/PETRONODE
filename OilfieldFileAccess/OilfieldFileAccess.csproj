@@ -1,0 +1,81 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{988A3AF9-A73F-4604-B3FF-621984956BD8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Petronode.OilfieldFileAccess</RootNamespace>
+    <AssemblyName>Petronode.OilfieldFileAccess</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Converters\BufferConverter.cs" />
+    <Compile Include="Converters\CoordinateAngle.cs" />
+    <Compile Include="CSV\CSV_Line.cs" />
+    <Compile Include="CSV\CSV_Constant.cs" />
+    <Compile Include="CSV\CSV_File.cs" />
+    <Compile Include="CSV\CSV_Channel.cs" />
+    <Compile Include="LAS2\LAS_Channel.cs" />
+    <Compile Include="LAS2\LAS_Constant.cs" />
+    <Compile Include="LAS2\LAS_Constant_List.cs" />
+    <Compile Include="LAS2\LAS_File.cs" />
+    <Compile Include="LAS2\LAS_InfoLine.cs" />
+    <Compile Include="Converters\Latitude.cs" />
+    <Compile Include="LDF\LDF_Channel.cs" />
+    <Compile Include="LDF\LDF_Constant.cs" />
+    <Compile Include="LDF\LDF_File.cs" />
+    <Compile Include="Log_Statistics_File.cs" />
+    <Compile Include="Converters\Longitude.cs" />
+    <Compile Include="Converters\NumberUnion.cs" />
+    <Compile Include="Oilfield_Channel.cs" />
+    <Compile Include="Oilfield_Constant.cs" />
+    <Compile Include="Oilfield_File.cs" />
+    <Compile Include="Oilfield_File_Factory.cs" />
+    <Compile Include="Petrolog10\Channel_Map.cs" />
+    <Compile Include="Petrolog10\Petrolog_Channel.cs" />
+    <Compile Include="Petrolog10\Petrolog_Constant.cs" />
+    <Compile Include="Petrolog10\Petrolog_File.cs" />
+    <Compile Include="Petrolog10\Petrolog_Wellheader.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Converters\ZipStorer.cs" />
+    <Compile Include="SEGY\SEGY_Channel.cs" />
+    <Compile Include="SEGY\SEGY_Constant.cs" />
+    <Compile Include="SEGY\SEGY_File.cs" />
+    <Compile Include="SEGY_Zebra\ZebraHeaderDescription.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="LAS3\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
