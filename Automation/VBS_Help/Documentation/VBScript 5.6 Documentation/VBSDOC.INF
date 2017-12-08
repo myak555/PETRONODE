@@ -1,0 +1,111 @@
+[Version]
+signature="$CHICAGO$"
+AdvancedINF=2.5,"You need a new version of advpack.dll"
+
+[SourceDisksNames]
+;1="%VBScript V5.1 Documentation%",,1
+1 = %VBScript V5.1 Documentation%,Sample,0
+
+[DefaultInstall]
+Copyfiles=VBSdocFiles, InfSection
+AddReg=InstallVBSdoc
+UpdateInis=AddLink 
+CustomDestination=MyCustomDestination
+
+[DefaultInstall.NT]
+Copyfiles=VBSdocFiles, InfSection
+AddReg=InstallVBSdoc
+UpdateInis=AddLinkNT 
+CustomDestination=MyCustomDestination
+
+[Uninstall]
+BeginPrompt=BeginPromptSection
+EndPrompt=EndPromptSection
+CustomDestination=UninstallDestination
+DelFiles=VBSdocFiles
+Deldirs=RemoveFolder
+DelReg=DelRegSection
+UpdateInis=RemoveLink
+SmartReboot=I
+Cleanup=1
+
+[BeginPromptSection]
+Prompt="%BeginPrompt%"
+ButtonType=YESNO
+Title="VBScript V5.1 Documentation"
+
+[EndPromptSection]
+Prompt="%EndPrompt%"
+
+[VBSdocFiles]
+VBSCRIP5.CHM
+VBSDOC.INF
+
+[InfSection]
+VBSdoc.inf
+
+[AddLinkNT]
+setup.ini, progman.groups,, ""group0="%ShortName%"""          
+setup.ini, group0,, """%icon1name%"",""""""%49002%\vbscrip5.chm""""""
+
+[AddLink]
+setup.ini, progman.groups,, "group0=%ShortName%"          
+setup.ini, group0,, ""%ShortName%""
+setup.ini, group0,, """%icon1name%"",""%49002%\vbscrip5.chm"",,0,"
+
+[RemoveLink]
+setup.ini, progman.groups,, "group0=%ShortName%"          
+setup.ini, group0,, ""%ShortName%""
+setup.ini, group0,, """%icon1name%"" 
+
+[DelRegSection]
+HKCR,inffile\shell\APInst
+HKCR,inffile\shell\APUninst
+HKLM,SOFTWARE\Microsoft\VBSdoc
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\VBSdoc
+
+[InstallVBSdoc]
+HKLM,Software\Microsoft\VBSdoc,InstallDir,,%49001%
+
+;inffine.reg
+HKCR,inffile\shell\APInst,,,"Active I&nstall"
+HKCR,inffile\shell\APInst\command,,,"rundll32.exe advpack.dll,LaunchINFSection %1, DefaultInstall"
+HKCR,inffile\shell\APUninst,,,"Active &Uninstall"
+HKCR,inffile\shell\APUninst\command,,,"rundll32.exe advpack.dll,LaunchINFSection %1, UnInstall"
+
+;Register for Uninstall
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\VBSdoc,"DisplayName",,"VBScript V5.1 Documentation" 
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\VBSdoc,"UninstallString",,"RunDll32 advpack.dll,LaunchINFSection %17%\VBSdoc.inf, Uninstall" 
+
+[DestinationDirs]
+VBSdocFiles=49000
+InfSection=17
+
+[MyCustomDestination]
+;need to add new LFN stuff here.
+49000,49001,49002,49003=PackageDestination49000,1
+
+[UninstallDestination]
+49000=UninstallDestination49000,5
+
+[PackageDestination49000]
+HKLM,SOFTWARE\Microsoft\VBSdoc,InstallDir,%InstallPrompt%,%DefaultDir%
+HKLM,SOFTWARE\Microsoft\VBSdoc,InstallDir,%InstallPrompt%,%DefaultDir%
+
+[UninstallDestination49000]
+HKLM,SOFTWARE\Microsoft\VBSdoc,InstallDir,%InstallPrompt%,%DefaultDir%
+
+[RemoveFolder]
+%49000%
+
+[Strings]
+AppName="VBScript V5.1 Documentation"
+InstallPrompt="Where would you like to install VBScript V5.1 Documentation?"
+DefaultDir="C:\Program Files\Microsoft Windows Script\VBSdocs"
+shortname="Microsoft Windows Script"
+icon1name="VBScript V5.1 Documentation"
+;prompts
+BeginPrompt="Are you sure you want to remove VBScript V5.1 Documentation?"
+EndPrompt="VBScript V5.1 Documentation was successfully removed"
+CDFDesc="VBScript CDF File"
+LinkName = "VBScript V5.1 Documentation"
