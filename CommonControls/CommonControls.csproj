@@ -35,7 +35,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ColorConverter.cs" />
+    <Compile Include="ColorParser.cs" />
     <Compile Include="ColorSelectorControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -89,6 +89,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="PythonEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PythonEditor.Designer.cs">
+      <DependentUpon>PythonEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="ToolLauncher.cs" />
     <Compile Include="ToolLauncherControl.cs">

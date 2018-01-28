@@ -54,7 +54,7 @@ namespace Petronode.CommonControls
             if (File.Exists(m_FileName)) openFileDialog1.FileName = m_FileName;
             if (openFileDialog1.ShowDialog() != DialogResult.OK) return;
             enableControls(false);
-            if (File.Exists(m_FileName) && OnFileSaveReceived != null) OnFileSaveReceived(this);
+            //if (File.Exists(m_FileName) && OnFileSaveReceived != null) OnFileSaveReceived(this);
             m_FileName = openFileDialog1.FileName;
             if (OnFileLoadReceived != null) OnFileLoadReceived(this);
             enableControls(true);

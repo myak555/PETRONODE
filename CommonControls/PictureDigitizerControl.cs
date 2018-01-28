@@ -6,6 +6,8 @@ using System.Data;
 using System.Text;
 using System.IO;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
+using Petronode.CommonControls;
 
 namespace Petronode.CommonControls
 {
@@ -104,10 +106,10 @@ namespace Petronode.CommonControls
         /// <summary>
         /// Sets and retrieves completion percent
         /// </summary>
-        public int CompletionPetrcent
+        public int CompletionPercent
         {
             get { return toolStripProgressBar1.Value; }
-            set { toolStripProgressBar1.Value = CompletionPetrcent; }
+            set { toolStripProgressBar1.Value = CompletionPercent; }
         }
 
         /// <summary>
@@ -116,7 +118,8 @@ namespace Petronode.CommonControls
         /// <param name="x">x coordinate from left</param>
         /// <param name="y">y coordinate from top</param>
         /// <param name="c">Color under cursor</param>
-        public delegate void OnDizitizerEventDelegate(int x, int y, int relative_x, int relative_y, string c, MouseEventArgs e);
+        public delegate void OnDizitizerEventDelegate(int x, int y, int relative_x, int relative_y,
+            string c, MouseEventArgs e, bool[] KeyModifiers);
         public OnDizitizerEventDelegate OnDigitizerEventReceived = null;
 
         /// <summary>
@@ -142,6 +145,34 @@ namespace Petronode.CommonControls
             }
         }
 
+        /// <summary>
+        /// Called on mouse wheel event in the parent form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void MouseWheelMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button != MouseButtons.None) return;
+            int scroll_move = e.Delta / ((GetAsyncKeyState(Keys.ShiftKey) < 0) ? 16 : 4);
+            bool modifier_Control = GetAsyncKeyState(Keys.ControlKey) < 0;
+            if (!modifier_Control)
+            {
+                int v = vScrollBar1.Value - scroll_move;
+                if (v < 0) v = 0;
+                if (v > vScrollBar1.Maximum) v = vScrollBar1.Maximum;
+                vScrollBar1.Value = v;
+            }
+            else
+            {
+                int h = hScrollBar1.Value - scroll_move;
+                if (h < 0) h = 0;
+                if (h > hScrollBar1.Maximum) h = hScrollBar1.Maximum;
+                hScrollBar1.Value = h;
+            }
+            ((HandledMouseEventArgs)e).Handled = true;
+        }
+
+        #region Private Methods
         private bool m_PreventDraw = false;
 
         private void SetNewImage( Bitmap bmp)
@@ -186,7 +217,7 @@ namespace Petronode.CommonControls
             PaintControl();
         }
 
-        bool m_isPainting = false;
+        private bool m_isPainting = false;
 
         private void PaintControl()
         {
@@ -254,14 +285,18 @@ namespace Petronode.CommonControls
             Color cc = Color.Black;
             if (x>=0 && y>=0 && x < m_Image.Width && y < m_Image.Height)
                 cc = m_Image.GetPixel(x, y);
-            string c = ColorConverter.GetColorString(cc);
+            string c = ColorParser.GetColorString(cc);
+            bool[] modifier_Shift = new bool[3];
+            modifier_Shift[0] = GetAsyncKeyState(Keys.ShiftKey) < 0;
+            modifier_Shift[1] = GetAsyncKeyState(Keys.ControlKey) < 0;
+            modifier_Shift[2] = GetAsyncKeyState(Keys.Alt) < 0;
 
             if (e.Button == MouseButtons.Left)
             {
                 m_LastClickX = x;
                 m_LastClickY = y;
                 if (OnDigitizerEventReceived != null)
-                    OnDigitizerEventReceived(x, y, 0, 0, c, e);
+                    OnDigitizerEventReceived(x, y, 0, 0, c, e, modifier_Shift);
                 StringBuilder sb = new StringBuilder();
                 sb.Append("Origin: X=");
                 sb.Append(m_LastClickX.ToString());
@@ -279,25 +314,15 @@ namespace Petronode.CommonControls
                 if (m_LastClickX > 0) x1 = x - m_LastClickX;
                 if (m_LastClickY > 0) y1 = y - m_LastClickY;
                 if (OnDigitizerEventReceived == null) return;
-                OnDigitizerEventReceived(x, y, x1, y1, c, e);
+                OnDigitizerEventReceived(x, y, x1, y1, c, e, modifier_Shift);
                 return;
             }
             if (e.Button == MouseButtons.Middle)
             {
                 if (OnDigitizerEventReceived == null) return;
-                OnDigitizerEventReceived(x, y, 0, 0, c, e);
+                OnDigitizerEventReceived(x, y, 0, 0, c, e, modifier_Shift);
                 return;
             }
-            ((HandledMouseEventArgs)e).Handled = true;
-        }
-
-        public void MouseWheelMove(object sender, MouseEventArgs e)
-        {
-            if (e.Button != MouseButtons.None) return;
-            int v = vScrollBar1.Value - e.Delta / 4;
-            if (v < 0) v = 0;
-            if( v>vScrollBar1.Maximum) v = vScrollBar1.Maximum;
-            vScrollBar1.Value = v;
             ((HandledMouseEventArgs)e).Handled = true;
         }
 
@@ -353,5 +378,9 @@ namespace Petronode.CommonControls
                 //DrawMyImage(input, srcRect, output);
             }
         }
+
+        [DllImport("user32.dll")]
+        static extern short GetAsyncKeyState(Keys vKey);
+        #endregion
     }
 }

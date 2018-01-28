@@ -38,7 +38,7 @@ namespace Petronode.CommonControls
             {
                 string sub = config.Substring(i, 6);
                 if (sub.Length < 6) break;
-                Colors.Add( ColorConverter.GetColor(sub));
+                Colors.Add( ColorParser.GetColor(sub));
                 if (Colors.Count >= 27) break;
                 Image old_bmp = pictureBox1.Image;
                 Bitmap bmp = PrepareHSVBitmap();
@@ -55,7 +55,7 @@ namespace Petronode.CommonControls
             StringBuilder sb = new StringBuilder();
             foreach (Color c in Colors)
             {
-                sb.Append( ColorConverter.GetColorString( c) );
+                sb.Append( ColorParser.GetColorString( c) );
             }
             return sb.ToString();
         }

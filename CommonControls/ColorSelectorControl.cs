@@ -60,6 +60,8 @@ namespace Petronode.CommonControls
             Bitmap tmp = new Bitmap(c_picX + 40, c_picY + 10);
             Graphics g = Graphics.FromImage(tmp);
             g.Clear(this.BackColor);
+
+            // makes color circle
             for (int x = 0; x < c_picX; x++)
             {
                 for (int y = 0; y < c_picY; y++)
@@ -67,6 +69,10 @@ namespace Petronode.CommonControls
                     tmp.SetPixel(x + 5, y + 5, MixColor(x, y, dV));
                 }
             }
+            Pen p = new Pen(this.ForeColor, 2f);
+            g.DrawEllipse(p, 4, 4, c_picX+2, c_picY+2);
+
+            // makes intensity slider
             int loc_x = c_picX + 30;
             for (int y = 0; y < c_picY; y++)
             {
@@ -76,7 +82,6 @@ namespace Petronode.CommonControls
                     tmp.SetPixel(x, y + 5, shade);
             }
             int loc_y = 260 - m_V;
-            Pen p = new Pen(this.ForeColor);
             g.DrawLine(p, loc_x + 4, loc_y - 4, loc_x + 5, loc_y - 4);
             g.DrawLine(p, loc_x + 3, loc_y - 3, loc_x + 5, loc_y - 3);
             g.DrawLine(p, loc_x + 2, loc_y - 2, loc_x + 5, loc_y - 2);
