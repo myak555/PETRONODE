@@ -41,7 +41,7 @@ namespace Petronode.CommonControls
             if (File.Exists(m_FileName)) saveFileDialog1.FileName = m_FileName;
             if (saveFileDialog1.ShowDialog() != DialogResult.OK) return;
             enableControls(false);
-            this.FileName = saveFileDialog1.FileName;
+            this.m_FileName = saveFileDialog1.FileName;
             if (OnFileSaveReceived != null) OnFileSaveReceived(this);
             enableControls(true);
         }
@@ -77,9 +77,9 @@ namespace Petronode.CommonControls
         {
             get { return m_FileName; }
             set
-            { 
+            {
                 m_FileName = value;
-                buttonReload_Click(this, null);
+                if (OnFileLoadReceived != null) OnFileLoadReceived(this);
             }
         }
 
@@ -105,10 +105,10 @@ namespace Petronode.CommonControls
         public OnFileOperationDelegate OnFileLoadReceived = null;
         public OnFileOperationDelegate OnFileSaveReceived = null;
 
-        /// <summary>
-        /// Delegate is fired on the mouse scroll outside the combo box
-        /// </summary>
-        public MouseEventHandler OnMouseScrollReceived = null;
+        ///// <summary>
+        ///// Delegate is fired on the mouse scroll outside the combo box
+        ///// </summary>
+        //public MouseEventHandler OnMouseScrollReceived = null;
 
         private void enableControls(bool state)
         {

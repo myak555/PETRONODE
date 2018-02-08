@@ -7,7 +7,7 @@ using System.Text;
 using System.IO;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
-using Petronode.CommonControls;
+using Petronode.CommonData;
 
 namespace Petronode.CommonControls
 {

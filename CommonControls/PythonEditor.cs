@@ -45,7 +45,7 @@ namespace Petronode.CommonControls
             //{
             //    Data.Load(filename);
             //    Refresh_Headers();
-            //    foreach (DigiTaserPoint p in Data.Points)
+            //    foreach (DigitizerPoint p in Data.Points)
             //        dataGridView1.Rows.Add(p.ToStrings());
             //    PlotPicks();
             //}

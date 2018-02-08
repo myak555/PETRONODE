@@ -11,24 +11,20 @@ namespace Petronode.CommonControls
 {
     public partial class FontHelpForm : Form
     {
+        List<string> m_fonts = new List<string>(); 
+        
         public FontHelpForm()
         {
             InitializeComponent();
             FontFamily[] ff = FontFamily.Families;
-            StringBuilder sb = new StringBuilder();
-            sb.Append("This machine has the following fonts:\n");
-            sb.Append("\n");
+            string[] tmp = { "", "12", "False", "True"};
             try
             {
                 for (int i = 0; i < ff.Length; i++)
                 {
-                    sb.Append(ff[i].Name);
-                    sb.Append("\n");
+                    tmp[0] = ff[i].Name;
+                    dataGridView1.Rows.Add(tmp);
                 }
-                richTextBox1.Text = sb.ToString();
-                richTextBox1.HideSelection = false;
-                richTextBox1.Select(0, 0);
-                richTextBox1.ScrollToCaret();
             }
             catch (Exception) { }
         }

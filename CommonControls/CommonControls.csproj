@@ -35,7 +35,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ColorParser.cs" />
     <Compile Include="ColorSelectorControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -96,7 +95,6 @@
     <Compile Include="PythonEditor.Designer.cs">
       <DependentUpon>PythonEditor.cs</DependentUpon>
     </Compile>
-    <Compile Include="ToolLauncher.cs" />
     <Compile Include="ToolLauncherControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -143,10 +141,20 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="PythonEditor.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>PythonEditor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ToolLauncherControl.resx">
       <SubType>Designer</SubType>
       <DependentUpon>ToolLauncherControl.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CommonData\CommonData.csproj">
+      <Project>{643B83C4-43E7-4A19-ACC2-46A318D4BF25}</Project>
+      <Name>CommonData</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
