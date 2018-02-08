@@ -74,6 +74,10 @@
       <Project>{3CD022DE-F349-4548-9AD6-08B50F6148C7}</Project>
       <Name>CommonControls</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CommonData\CommonData.csproj">
+      <Project>{643B83C4-43E7-4A19-ACC2-46A318D4BF25}</Project>
+      <Name>CommonData</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

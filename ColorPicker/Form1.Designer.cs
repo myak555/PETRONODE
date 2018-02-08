@@ -53,7 +53,7 @@ namespace Petronode.ColorPicker
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Location = new System.Drawing.Point(145, 341);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(73, 124);
             this.panel1.TabIndex = 9;
@@ -61,7 +61,7 @@ namespace Petronode.ColorPicker
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(227, 434);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(172, 28);
             this.button2.TabIndex = 11;
@@ -72,7 +72,7 @@ namespace Petronode.ColorPicker
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(227, 341);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(172, 89);
             this.button1.TabIndex = 10;
@@ -85,7 +85,7 @@ namespace Petronode.ColorPicker
             this.customColorControl1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.customColorControl1.Cursor = System.Windows.Forms.Cursors.Cross;
             this.customColorControl1.Location = new System.Drawing.Point(407, 337);
-            this.customColorControl1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.customColorControl1.Margin = new System.Windows.Forms.Padding(5);
             this.customColorControl1.MaximumSize = new System.Drawing.Size(399, 130);
             this.customColorControl1.MinimumSize = new System.Drawing.Size(399, 130);
             this.customColorControl1.Name = "customColorControl1";
@@ -97,7 +97,7 @@ namespace Petronode.ColorPicker
             this.defaultColorControl1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.defaultColorControl1.Cursor = System.Windows.Forms.Cursors.Cross;
             this.defaultColorControl1.Location = new System.Drawing.Point(407, 4);
-            this.defaultColorControl1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.defaultColorControl1.Margin = new System.Windows.Forms.Padding(5);
             this.defaultColorControl1.MaximumSize = new System.Drawing.Size(399, 327);
             this.defaultColorControl1.MinimumSize = new System.Drawing.Size(399, 327);
             this.defaultColorControl1.Name = "defaultColorControl1";
@@ -148,7 +148,7 @@ namespace Petronode.ColorPicker
             // 
             this.numericUpDown4.Hexadecimal = true;
             this.numericUpDown4.Location = new System.Drawing.Point(79, 441);
-            this.numericUpDown4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numericUpDown4.Margin = new System.Windows.Forms.Padding(4);
             this.numericUpDown4.Maximum = new decimal(new int[] {
             255,
             0,
@@ -168,7 +168,7 @@ namespace Petronode.ColorPicker
             // 
             this.numericUpDown3.Hexadecimal = true;
             this.numericUpDown3.Location = new System.Drawing.Point(79, 411);
-            this.numericUpDown3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numericUpDown3.Margin = new System.Windows.Forms.Padding(4);
             this.numericUpDown3.Maximum = new decimal(new int[] {
             255,
             0,
@@ -188,7 +188,7 @@ namespace Petronode.ColorPicker
             // 
             this.numericUpDown2.Hexadecimal = true;
             this.numericUpDown2.Location = new System.Drawing.Point(79, 382);
-            this.numericUpDown2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numericUpDown2.Margin = new System.Windows.Forms.Padding(4);
             this.numericUpDown2.Maximum = new decimal(new int[] {
             255,
             0,
@@ -209,7 +209,7 @@ namespace Petronode.ColorPicker
             this.colorSelectorControl1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.colorSelectorControl1.Cursor = System.Windows.Forms.Cursors.Cross;
             this.colorSelectorControl1.Location = new System.Drawing.Point(3, 4);
-            this.colorSelectorControl1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.colorSelectorControl1.Margin = new System.Windows.Forms.Padding(5);
             this.colorSelectorControl1.MaximumSize = new System.Drawing.Size(399, 327);
             this.colorSelectorControl1.MinimumSize = new System.Drawing.Size(399, 327);
             this.colorSelectorControl1.Name = "colorSelectorControl1";
@@ -221,7 +221,7 @@ namespace Petronode.ColorPicker
             // 
             this.numericUpDown1.Hexadecimal = true;
             this.numericUpDown1.Location = new System.Drawing.Point(79, 340);
-            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(4);
             this.numericUpDown1.Maximum = new decimal(new int[] {
             255,
             0,
@@ -258,7 +258,7 @@ namespace Petronode.ColorPicker
             this.Controls.Add(this.numericUpDown1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form1";
