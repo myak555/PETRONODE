@@ -45,19 +45,19 @@ namespace Petronode.CommonControls
         private void toolStripButtonDigiPaint_Click(object sender, EventArgs e)
         {
             if (OnGetArgs != null) m_Args = OnGetArgs();
-            ToolLauncher.LaunchPetronodeUtility("Petronode.DigiPaint");
+            ToolLauncher.LaunchPetronodeUtility("Petronode.DigiPaint", m_Args);
         }
 
         private void toolStripButtonDigitizer_Click(object sender, EventArgs e)
         {
             if (OnGetArgs != null) m_Args = OnGetArgs();
-            ToolLauncher.LaunchPetronodeUtility("Petronode.Digitizer");
+            ToolLauncher.LaunchPetronodeUtility("Petronode.Digitizer", m_Args);
         }
 
         private void toolStripDigiFitter_Click(object sender, EventArgs e)
         {
             if (OnGetArgs != null) m_Args = OnGetArgs();
-            ToolLauncher.LaunchPetronodeUtility("Petronode.DigiFitter");
+            ToolLauncher.LaunchPetronodeUtility("Petronode.DigiFitter", m_Args);
         }
 
         public delegate string[] GetArgsDelegate();

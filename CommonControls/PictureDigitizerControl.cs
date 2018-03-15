@@ -109,7 +109,7 @@ namespace Petronode.CommonControls
         public int CompletionPercent
         {
             get { return toolStripProgressBar1.Value; }
-            set { toolStripProgressBar1.Value = CompletionPercent; }
+            set { toolStripProgressBar1.Value = value; }
         }
 
         /// <summary>
