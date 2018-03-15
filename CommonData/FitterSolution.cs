@@ -21,12 +21,18 @@ namespace Petronode.CommonData
         {
             FunctionTemplates.Add(new LinearFunction());
             FunctionTemplates.Add(new FixPointGradientFunction());
+            FunctionTemplates.Add(new ParabolicFunction());
+            FunctionTemplates.Add(new ExponentialFunction());
+            FunctionTemplates.Add(new LogarithmicFunction());
             FunctionTemplates.Add(new SigmoidFunction());
             FunctionTemplates.Add(new BathtubFunction());
             FunctionTemplates.Add(new HubbertFunction());
             FunctionTemplates.Add(new GaussFunction());
             FunctionTemplates.Add(new KapitsaFunction());
             FunctionTemplates.Add(new WeibullFunction());
+            FunctionTemplates.Add(new HarmonicFunction());
+            FunctionTemplates.Add(new BerlageFunction());
+            FunctionTemplates.Add(new RickerWaveletFunction());
         }
 
         /// <summary>

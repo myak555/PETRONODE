@@ -116,7 +116,7 @@ namespace Petronode.CommonData
                 if (BestSolution.Value < Tolerance) break; // solution in tolerance
 
                 // progress report
-                if ((t % 10 == 0) && onReportProgress != null)
+                if ((t % 500 == 0) && onReportProgress != null)
                     onReportProgress(t * 100 / maxLoop, (object)BestSolution.ToString());
                 
                 Nelder_Mead_Solution centroid = GetCentroid();

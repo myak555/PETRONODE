@@ -15,7 +15,7 @@ namespace Petronode.CommonData
             Name = "Linear";
             Description = "Classic linear gain-offset function";
             Parameters.Add(
-                new FitterParameter("gain", "Linear function gain", 1.0, 0.0, 2.0));
+                new FitterParameter("gain", "Linear function gain", 1.0, 0.0, 2.0, "0.00000"));
             Parameters.Add(
                 new FitterParameter("offset", "Linear function offset", 0.0, -1.0, 1.0));
         }
@@ -48,7 +48,7 @@ namespace Petronode.CommonData
         /// </summary>
         /// <param name="x">entry variable</param>
         /// <returns>computed value y</returns>
-        public override double Compute(double x)
+        protected override double Compute_Unsafe(double x)
         {
             return Parameters[0].Value * x + Parameters[1].Value;
         }
@@ -66,7 +66,7 @@ namespace Petronode.CommonData
             Name = "FixPointGradient";
             Description = "À gradient through a fix point";
             Parameters.Add(
-                new FitterParameter("gragient", "Slope value", 1.0, 0.0, 2.0));
+                new FitterParameter("gragient", "Slope value", 1.0, 0.0, 2.0, "0.00000"));
             Parameters.Add(
                 new FitterParameter("x0", "Fixed point x", 0.0, -1.0, 1.0));
             Parameters.Add(
@@ -90,9 +90,313 @@ namespace Petronode.CommonData
         /// </summary>
         /// <param name="x">entry variable</param>
         /// <returns>computed value y</returns>
-        public override double Compute(double x)
+        protected override double Compute_Unsafe(double x)
         {
             return Parameters[0].Value * (x - Parameters[1].Value) + Parameters[2].Value;
+        }
+    }
+    #endregion
+
+    #region Parabolic Function
+    public class ParabolicFunction : FitterFunction
+    {
+        /// <summary>
+        /// Describes a parabolic function y = b + a * (x - x0)^n
+        /// </summary>
+        public ParabolicFunction()
+        {
+            Name = "Parabolic";
+            Description = "Parabolic x^n";
+            Parameters.Add(
+                new FitterParameter("x0", "Fixed point x", 0.0, -1.0, 1.0));
+            Parameters.Add(
+                new FitterParameter("a", "Vertical scale", 0.0, -1.0, 1.0, "0.00000"));
+            Parameters.Add(
+                new FitterParameter("b", "Vertical offset", 0.0, -1.0, 1.0));
+            Parameters.Add(
+                new FitterParameter("n", "Function power", 2.0, 2.0, 2.0, "0.00000"));
+            Parameters[0].AcceptDigitizerX = true;
+            Parameters[2].AcceptDigitizerY = true;
+        }
+
+        /// <summary>
+        /// Makes a deep clone
+        /// </summary>
+        public override FitterFunction Clone()
+        {
+            ParabolicFunction tmp = new ParabolicFunction();
+            tmp.CloneFunction(this);
+            return tmp;
+        }
+
+        /// <summary>
+        /// Computes the function
+        /// </summary>
+        /// <param name="x">entry variable</param>
+        /// <returns>computed value y</returns>
+        protected override double Compute_Unsafe(double x)
+        {
+            if (-1e-10 < Parameters[3].Value && Parameters[3].Value < 1e-10)
+                return Parameters[1].Value + Parameters[2].Value;
+            x -= Parameters[0].Value;
+            double y = 1.0;
+            if (x < 0.0)
+            {
+                int n = Convert.ToInt32(Parameters[3].Value);
+                while (n > 0)
+                {
+                    y *= x;
+                    n--;
+                }
+                while (n < 0)
+                {
+                    y /= x;
+                    n++;
+                }
+            }
+            else
+                y = Math.Pow(x, Parameters[3].Value);
+            return y * Parameters[1].Value + Parameters[2].Value;
+        }
+    }
+    #endregion
+
+    #region Exponential Function
+    public class ExponentialFunction : FitterFunction
+    {
+        /// <summary>
+        /// Describes an exponent function y = b + a * exp( sigma*(x - x0))
+        /// </summary>
+        public ExponentialFunction()
+        {
+            Name = "Exponential";
+            Description = "Exponential exp(x)";
+            Parameters.Add(
+                new FitterParameter("x0", "Fixed point x", 0.0, -1.0, 1.0));
+            Parameters.Add(
+                new FitterParameter("a", "Vertical scale", 0.0, -1.0, 1.0, "0.00000"));
+            Parameters.Add(
+                new FitterParameter("b", "Vertical offset", 0.0, -1.0, 1.0));
+            Parameters.Add(
+                new FitterParameter("s0", "Function power", 1.0, -1.0, 2.0, "0.00000"));
+            Parameters[0].AcceptDigitizerX = true;
+            Parameters[2].AcceptDigitizerY = true;
+        }
+
+        /// <summary>
+        /// Makes a deep clone
+        /// </summary>
+        public override FitterFunction Clone()
+        {
+            ExponentialFunction tmp = new ExponentialFunction();
+            tmp.CloneFunction(this);
+            return tmp;
+        }
+
+        /// <summary>
+        /// Computes the function
+        /// </summary>
+        /// <param name="x">entry variable</param>
+        /// <returns>computed value y</returns>
+        protected override double Compute_Unsafe(double x)
+        {
+            if (-1e-10 < Parameters[3].Value && Parameters[3].Value < 1e-10)
+                return Parameters[1].Value + Parameters[2].Value;
+            x -= Parameters[0].Value;
+            x *= Parameters[3].Value;
+            x = Math.Exp(x);
+            return x * Parameters[1].Value + Parameters[2].Value;
+        }
+    }
+    #endregion
+
+    #region Logarithmic Function
+    public class LogarithmicFunction : FitterFunction
+    {
+        /// <summary>
+        /// Describes an exponent function y = b + a * ln(x - x0)
+        /// </summary>
+        public LogarithmicFunction()
+        {
+            Name = "Logarithmic";
+            Description = "Logarithmic ln(x)";
+            Parameters.Add(
+                new FitterParameter("x0", "Fixed point x", 0.0, -1.0, 1.0));
+            Parameters.Add(
+                new FitterParameter("a", "Vertical scale", 0.0, -1.0, 1.0, "0.00000"));
+            Parameters.Add(
+                new FitterParameter("b", "Vertical offset", 0.0, -1.0, 1.0));
+            Parameters[0].AcceptDigitizerX = true;
+            Parameters[2].AcceptDigitizerY = true;
+        }
+
+        /// <summary>
+        /// Makes a deep clone
+        /// </summary>
+        public override FitterFunction Clone()
+        {
+            LogarithmicFunction tmp = new LogarithmicFunction();
+            tmp.CloneFunction(this);
+            return tmp;
+        }
+
+        /// <summary>
+        /// Computes the function
+        /// </summary>
+        /// <param name="x">entry variable</param>
+        /// <returns>computed value y</returns>
+        protected override double Compute_Unsafe(double x)
+        {
+            x -= Parameters[0].Value;
+            if (x <= 1e-99) return Math.Log( 1e-99);
+            x = Math.Log(x);
+            return x * Parameters[1].Value + Parameters[2].Value;
+        }
+    }
+    #endregion
+
+    #region Harmonic Function
+    public class HarmonicFunction : FitterFunction
+    {
+        /// <summary>
+        /// Describes a periodic function y = b + a * sin( omega*(x - x0))
+        /// </summary>
+        public HarmonicFunction()
+        {
+            Name = "Harmonic";
+            Description = "Harmonic (sinusoid)";
+            Parameters.Add(
+                new FitterParameter("x0", "Fixed point x", 0.0, -1.0, 1.0));
+            Parameters.Add(
+                new FitterParameter("a", "Vertical scale", 0.0, -1.0, 1.0, "0.00000"));
+            Parameters.Add(
+                new FitterParameter("b", "Vertical offset", 0.0, -1.0, 1.0));
+            Parameters.Add(
+                new FitterParameter("f", "Signal frequency", 10, 0.0, 1000.0));
+            Parameters[0].AcceptDigitizerX = true;
+            Parameters[2].AcceptDigitizerY = true;
+        }
+
+        /// <summary>
+        /// Makes a deep clone
+        /// </summary>
+        public override FitterFunction Clone()
+        {
+            HarmonicFunction tmp = new HarmonicFunction();
+            tmp.CloneFunction(this);
+            return tmp;
+        }
+
+        /// <summary>
+        /// Computes the function
+        /// </summary>
+        /// <param name="x">entry variable</param>
+        /// <returns>computed value y</returns>
+        protected override double Compute_Unsafe(double x)
+        {
+            x -= Parameters[0].Value;
+            x *= Parameters[3].Value * Math.PI;
+            x = Math.Sin(x);
+            return x * Parameters[1].Value + Parameters[2].Value;
+        }
+    }
+    #endregion
+
+    #region Berlage Function
+    public class BerlageFunction : FitterFunction
+    {
+        /// <summary>
+        /// Describes a periodic declining function y = b + a * exp( -s0*(x - x0)) * sin( omega*(x - x0))
+        /// </summary>
+        public BerlageFunction()
+        {
+            Name = "BerlagePulse";
+            Description = "BerlagePulse (declining sine)";
+            Parameters.Add(
+                new FitterParameter("x0", "Fixed point x", 0.0, -1.0, 1.0));
+            Parameters.Add(
+                new FitterParameter("a", "Vertical scale", 0.0, -1.0, 1.0, "0.00000"));
+            Parameters.Add(
+                new FitterParameter("b", "Vertical offset", 0.0, -1.0, 1.0));
+            Parameters.Add(
+                new FitterParameter("f", "Signal frequency", 10.0, 0.0, 10000.0));
+            Parameters.Add(
+                new FitterParameter("s0", "Decrement", 1.0, 0.0, 10.0, "0.00000"));
+            Parameters[0].AcceptDigitizerX = true;
+            Parameters[2].AcceptDigitizerY = true;
+        }
+
+        /// <summary>
+        /// Makes a deep clone
+        /// </summary>
+        public override FitterFunction Clone()
+        {
+            BerlageFunction tmp = new BerlageFunction();
+            tmp.CloneFunction(this);
+            return tmp;
+        }
+
+        /// <summary>
+        /// Computes the function
+        /// </summary>
+        /// <param name="x">entry variable</param>
+        /// <returns>computed value y</returns>
+        protected override double Compute_Unsafe(double x)
+        {
+            x -= Parameters[0].Value;
+            if (x <= 0.0) return Parameters[2].Value;
+            double y = Math.Exp(-x * Parameters[4].Value);
+            x *= Parameters[3].Value * Math.PI;
+            y *= Math.Sin(x);
+            return y * Parameters[1].Value + Parameters[2].Value;
+        }
+    }
+    #endregion
+
+    #region Ricker Function
+    public class RickerWaveletFunction : FitterFunction
+    {
+        /// <summary>
+        /// Describes a standard Ricker wavelet (Mexical Hat)
+        /// </summary>
+        public RickerWaveletFunction()
+        {
+            Name = "RickerWavelet";
+            Description = "Ricker wavelet (zero phase)";
+            Parameters.Add(
+                new FitterParameter("x0", "Fixed point x", 0.0, -1.0, 1.0));
+            Parameters.Add(
+                new FitterParameter("a", "Vertical scale", 0.0, -1.0, 1.0, "0.00000"));
+            Parameters.Add(
+                new FitterParameter("b", "Vertical offset", 0.0, -1.0, 1.0));
+            Parameters.Add(
+                new FitterParameter("f", "Signal frequency", 10.0, 0.0, 10000.0));
+            Parameters[0].AcceptDigitizerX = true;
+            Parameters[2].AcceptDigitizerY = true;
+        }
+
+        /// <summary>
+        /// Makes a deep clone
+        /// </summary>
+        public override FitterFunction Clone()
+        {
+            RickerWaveletFunction tmp = new RickerWaveletFunction();
+            tmp.CloneFunction(this);
+            return tmp;
+        }
+
+        /// <summary>
+        /// Computes the function
+        /// </summary>
+        /// <param name="x">entry variable</param>
+        /// <returns>computed value y</returns>
+        protected override double Compute_Unsafe(double x)
+        {
+            x -= Parameters[0].Value;
+            x *= Parameters[3].Value * Math.PI;
+            x *= x;
+            double y = (1.0-2.0*x) * Math.Exp(-x);
+            return y * Parameters[1].Value + Parameters[2].Value;
         }
     }
     #endregion
@@ -148,7 +452,7 @@ namespace Petronode.CommonData
         /// </summary>
         /// <param name="x">entry variable</param>
         /// <returns>computed value y</returns>
-        public override double Compute(double x)
+        protected override double Compute_Unsafe(double x)
         {
             x -= Parameters[0].Value;
             x *= Parameters[1].Value;
@@ -218,7 +522,7 @@ namespace Petronode.CommonData
         /// </summary>
         /// <param name="x">entry variable</param>
         /// <returns>computed value y</returns>
-        public override double Compute(double x)
+        protected override double Compute_Unsafe(double x)
         {
             double x1 = x - Parameters[0].Value;
             x1 *= Parameters[1].Value;
@@ -274,7 +578,7 @@ namespace Petronode.CommonData
         /// </summary>
         /// <param name="x">entry variable</param>
         /// <returns>computed value y</returns>
-        public override double Compute(double x)
+        protected override double Compute_Unsafe(double x)
         {
             x -= Parameters[0].Value;
             x *= Parameters[(x < 0.0) ? 1 : 2].Value;
@@ -325,7 +629,7 @@ namespace Petronode.CommonData
         /// </summary>
         /// <param name="x">entry variable</param>
         /// <returns>computed value y</returns>
-        public override double Compute(double x)
+        protected override double Compute_Unsafe(double x)
         {
             x -= Parameters[0].Value;
             double s = Parameters[(x < 0.0) ? 1 : 2].Value;
@@ -375,7 +679,7 @@ namespace Petronode.CommonData
         /// </summary>
         /// <param name="x">entry variable</param>
         /// <returns>computed value y</returns>
-        public override double Compute(double x)
+        protected override double Compute_Unsafe(double x)
         {
             x -= Parameters[0].Value;
             x *= Parameters[(x < 0.0) ? 1 : 2].Value;
@@ -403,8 +707,11 @@ namespace Petronode.CommonData
             Parameters.Add(
                 new FitterParameter("k", "Shape factor", 2.0, 1.0, 3.0, "0.00000"));
             Parameters.Add(
+                new FitterParameter("scale", "Vertical scale factor", 1.0, -1.0, 2.0));
+            Parameters.Add(
                 new FitterParameter("shift", "Constant shift", 0.0, 0.0, 0.0));
             Parameters[0].AcceptDigitizerX = true;
+            Parameters[4].AcceptDigitizerY = true;
         }
 
         /// <summary>
@@ -422,16 +729,16 @@ namespace Petronode.CommonData
         /// </summary>
         /// <param name="x">entry variable</param>
         /// <returns>computed value y</returns>
-        public override double Compute(double x)
+        protected override double Compute_Unsafe(double x)
         {
             x -= Parameters[0].Value;
             if (x <= 0.0) return 0.0;
             x *= Parameters[1].Value;
             double p1 = Math.Pow(x, Parameters[2].Value);
             double p2 = p1 / x;
-            p1 = Math.Exp(p1);
-            double y = Parameters[1].Value * Parameters[2].Value * p1 * p2 + Parameters[3].Value;
-            return y;
+            p1 = Math.Exp(-p1);
+            double y = Parameters[1].Value * Parameters[2].Value * p1 * p2;
+            return y * Parameters[3].Value + Parameters[4].Value;
         }
     }
     #endregion

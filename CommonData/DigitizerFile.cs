@@ -162,7 +162,9 @@ namespace Petronode.CommonData
             foreach (DigitizerPoint p in Points)
             {
                 if (!p.isFitted) continue;
-                myPoints.Add( Calibration.ValueToLocation( p.FitValue));
+                Point pp = Calibration.ValueToLocation(p.FitValue);
+                if (pp.X == int.MaxValue) continue;
+                myPoints.Add(pp);
             }
             return myPoints;
         }
@@ -177,7 +179,9 @@ namespace Petronode.CommonData
             foreach (DigitizerPoint p in Points)
             {
                 if (!p.isFitted) continue;
-                myPoints.Add(Calibration.ValueToLocation(p.PrefitValue));
+                Point pp = Calibration.ValueToLocation(p.PrefitValue);
+                if (pp.X == int.MaxValue) continue;
+                myPoints.Add(pp);
             }
             return myPoints;
         }

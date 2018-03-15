@@ -153,6 +153,7 @@ namespace Petronode.CommonData
         /// </summary>
         public Point ValueToLocation(PointF p)
         {
+            if (float.IsNaN(p.X) || float.IsNaN(p.Y)) return new Point(int.MaxValue, int.MaxValue); 
             int x = InterpolateValue(p.X, LeftBottomValue.X, RightTopValue.X, LeftBottomLocation.X, RightTopLocation.X);
             int y = InterpolateValue(p.Y, LeftBottomValue.Y, RightTopValue.Y, LeftBottomLocation.Y, RightTopLocation.Y);
             Point tmp = new Point(x, y);
@@ -164,6 +165,7 @@ namespace Petronode.CommonData
         /// </summary>
         public Point ValueToLocation(DigitizerPoint p)
         {
+            if (!p.isFitted) return new Point(int.MaxValue, int.MaxValue);
             int x = InterpolateValue(p.Value.X, LeftBottomValue.X, RightTopValue.X, LeftBottomLocation.X, RightTopLocation.X);
             int y = InterpolateValue(p.Value.Y, LeftBottomValue.Y, RightTopValue.Y, LeftBottomLocation.Y, RightTopLocation.Y);
             p.SetLocation(x, y);
@@ -175,6 +177,7 @@ namespace Petronode.CommonData
         /// </summary>
         public Point FitValueToLocation(DigitizerPoint p)
         {
+            if (!p.isFitted) return new Point(int.MaxValue, int.MaxValue);
             int x = InterpolateValue(p.FitValue.X, LeftBottomValue.X, RightTopValue.X, LeftBottomLocation.X, RightTopLocation.X);
             int y = InterpolateValue(p.FitValue.Y, LeftBottomValue.Y, RightTopValue.Y, LeftBottomLocation.Y, RightTopLocation.Y);
             return new Point(x, y);
@@ -191,9 +194,12 @@ namespace Petronode.CommonData
         private int InterpolateValue(float x, float x0, float x1, int y0, int y1)
         {
             float dx = x1 - x0;
-            if (-0.0000001f < dx && dx < 0.0000001f) return int.MaxValue;
-            float y = Convert.ToSingle(y0) * (x1 - x) + Convert.ToSingle(y1) * (x - x0);
-            return Convert.ToInt32( y / dx);
+            if (-0.000001f < dx && dx < 0.000001f) return int.MaxValue;
+            float y = Convert.ToSingle(y0) * ((x1 - x) / dx);
+            y += Convert.ToSingle(y1) * ((x - x0) / dx);
+            if (float.IsNaN(y)) return int.MaxValue;
+            if (y >= 100000 || y <= -100000) return int.MaxValue; 
+            return Convert.ToInt32( y);
         }
     }
 }

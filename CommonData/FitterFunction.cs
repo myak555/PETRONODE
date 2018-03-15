@@ -143,8 +143,28 @@ namespace Petronode.CommonData
             return prms;
         }
 
+        /// <summary>
+        /// Computes the value and handles exceptions
+        /// </summary>
+        /// <param name="x"></param>
+        /// <returns></returns>
+        public double Compute(double x)
+        {
+            try
+            {
+                return this.Compute_Unsafe(x);
+            }
+            catch
+            {
+                return double.NaN;
+            }
+        }
+
         public abstract FitterFunction Clone();
-        public abstract double Compute( double x);
+        protected virtual double Compute_Unsafe(double x)
+        {
+            return double.NaN;
+        }
 
         protected void CloneFunction(FitterFunction template)
         {
