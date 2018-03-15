@@ -7,12 +7,10 @@ o Function fitter (Petronode.DigiFitter.exe)
 
 o Interactive report builder (Petronode.DigiPaint.exe)
 
-o Interactive report builder (Petronode.DigiPaint.exe)
-
 o Batch report builder (Petronode.SlideComposer.exe)
 
 o LAS resample utility (Petronode.LAS_Resample.exe)
 
 o LAS quality control utility (Petronode.LogEnforce.exe)
 
-o Several command line utilities for working with images in batch mode
+o Several command line and interactive utilities for working with images and LAS files
