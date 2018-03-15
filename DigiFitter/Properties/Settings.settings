@@ -1,0 +1,21 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Petronode.DigiFitter.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Previous_File" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="Previous_Image" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="Variable_String" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Variable += </Value>
+    </Setting>
+    <Setting Name="Function_String" Type="System.String" Scope="User">
+      <Value Profile="(Default)">.GetVector( X)</Value>
+    </Setting>
+    <Setting Name="Function_Selection" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
