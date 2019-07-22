@@ -164,6 +164,7 @@ namespace Petronode.CommonData
                 if (!p.isFitted) continue;
                 Point pp = Calibration.ValueToLocation(p.FitValue);
                 if (pp.X == int.MaxValue) continue;
+                if (pp.Y == int.MaxValue) continue;
                 myPoints.Add(pp);
             }
             return myPoints;
@@ -181,6 +182,7 @@ namespace Petronode.CommonData
                 if (!p.isFitted) continue;
                 Point pp = Calibration.ValueToLocation(p.PrefitValue);
                 if (pp.X == int.MaxValue) continue;
+                if (pp.Y == int.MaxValue) continue;
                 myPoints.Add(pp);
             }
             return myPoints;

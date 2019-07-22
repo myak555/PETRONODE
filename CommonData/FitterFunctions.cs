@@ -110,7 +110,7 @@ namespace Petronode.CommonData
             Parameters.Add(
                 new FitterParameter("x0", "Fixed point x", 0.0, -1.0, 1.0));
             Parameters.Add(
-                new FitterParameter("a", "Vertical scale", 0.0, -1.0, 1.0, "0.00000"));
+                new FitterParameter("a", "Vertical scale", 1.0, -10.0, 10.0, "0.00000"));
             Parameters.Add(
                 new FitterParameter("b", "Vertical offset", 0.0, -1.0, 1.0));
             Parameters.Add(
@@ -174,7 +174,7 @@ namespace Petronode.CommonData
             Parameters.Add(
                 new FitterParameter("x0", "Fixed point x", 0.0, -1.0, 1.0));
             Parameters.Add(
-                new FitterParameter("a", "Vertical scale", 0.0, -1.0, 1.0, "0.00000"));
+                new FitterParameter("a", "Vertical scale", 1.0, -10.0, 10.0, "0.00000"));
             Parameters.Add(
                 new FitterParameter("b", "Vertical offset", 0.0, -1.0, 1.0));
             Parameters.Add(
@@ -223,7 +223,7 @@ namespace Petronode.CommonData
             Parameters.Add(
                 new FitterParameter("x0", "Fixed point x", 0.0, -1.0, 1.0));
             Parameters.Add(
-                new FitterParameter("a", "Vertical scale", 0.0, -1.0, 1.0, "0.00000"));
+                new FitterParameter("a", "Vertical scale", 1.0, -10.0, 10.0, "0.00000"));
             Parameters.Add(
                 new FitterParameter("b", "Vertical offset", 0.0, -1.0, 1.0));
             Parameters[0].AcceptDigitizerX = true;
