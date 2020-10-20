@@ -1,0 +1,84 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5D84F035-254D-4B8E-A1E9-6F9D69F8FB47}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Petronode.SlideComposerLibrary</RootNamespace>
+    <AssemblyName>Petronode.SlideComposerLibrary</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BitmapFile.cs" />
+    <Compile Include="BufferConverter.cs" />
+    <Compile Include="ComponentProperty.cs" />
+    <Compile Include="CompositeBitmap.cs" />
+    <Compile Include="SlideComponentDot.cs" />
+    <Compile Include="SlideComponentLog.cs" />
+    <Compile Include="SlideComponentExtract.cs" />
+    <Compile Include="SlideComponentPixelCount.cs" />
+    <Compile Include="RasterFile.cs" />
+    <Compile Include="SlideComponentRaster.cs" />
+    <Compile Include="SlideComponentRasterOver.cs" />
+    <Compile Include="SlideComponentEdgeDetect.cs" />
+    <Compile Include="NumberUnion.cs" />
+    <Compile Include="SlideComponentUnconformity.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Slide.cs" />
+    <Compile Include="SlideComponent.cs" />
+    <Compile Include="SlideComponentImage.cs" />
+    <Compile Include="SlideComponentImageOver.cs" />
+    <Compile Include="SlideComponentLabel.cs" />
+    <Compile Include="SlideComponentLabelOver.cs" />
+    <Compile Include="SlideComponentRecolor.cs" />
+    <Compile Include="SlideComponentShape.cs" />
+    <Compile Include="SlideComponentShapeOver.cs" />
+    <Compile Include="SlideComponentText.cs" />
+    <Compile Include="SlideComponentTextOver.cs" />
+    <Compile Include="SlideDescriptionFile.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OilfieldFileAccess\OilfieldFileAccess.csproj">
+      <Project>{988A3AF9-A73F-4604-B3FF-621984956BD8}</Project>
+      <Name>OilfieldFileAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SimplePDF\SimplePDF.csproj">
+      <Project>{59B52A5A-AE44-4EE7-B0FD-036CACE697B3}</Project>
+      <Name>SimplePDF</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
