@@ -1,4 +1,9 @@
 # PETRONODE
+
+Interim manuals:
+
+http://petronode.com/Manuals
+
 Current version includes:
 
 o An on-screen digitizer (Petronode.Digitizer.exe)
